@@ -23,7 +23,7 @@ return array(
 	 *
 	 * Set this to null to have it automatically detected.
 	 */
-	'base_url'  => null,
+	'base_url'  => '',
 
 	/**
 	 * url_suffix - Any suffix that needs to be added to
@@ -34,7 +34,7 @@ return array(
 	 *
 	 * Set this to an empty string if no suffix is used
 	 */
-	'url_suffix'  => '',
+	'url_suffix'  => 'php',
 
 	/**
 	 * index_file - The name of the main bootstrap file.

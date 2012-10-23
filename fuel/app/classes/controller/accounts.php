@@ -6,7 +6,7 @@ class Controller_Accounts extends Controller
 			
 	public function action_login()
 	{
-		echo $_POST['txtusername'];
+		echo 'test';
 	}
 
 	/**
