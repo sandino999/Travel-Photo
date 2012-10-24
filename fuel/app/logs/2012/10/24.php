@@ -104,3 +104,11 @@ Warning - 2012-10-24 02:03:18 --> Fuel\Core\Fuel::init - The configured locale e
 Error - 2012-10-24 02:03:18 --> Parsing Error - syntax error, unexpected 'public' (T_PUBLIC) in C:\xampp\htdocs\travelphoto\fuel\app\classes\controller\accounts.php on line 98
 Warning - 2012-10-24 02:03:29 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
 Warning - 2012-10-24 02:03:36 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-24 02:45:42 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-24 02:46:27 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-24 02:47:04 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-24 02:48:02 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-24 02:48:24 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-24 02:48:24 --> 8 - Undefined index: txtusername in C:\xampp\htdocs\tj\fuel\app\classes\controller\accounts.php on line 20
+Warning - 2012-10-24 02:48:42 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-24 02:48:42 --> Error - The requested view could not be found: startpage/login in C:\xampp\htdocs\tj\fuel\core\classes\view.php on line 381
