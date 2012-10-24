@@ -91,3 +91,16 @@ Warning - 2012-10-24 01:34:59 --> Fuel\Core\Fuel::init - The configured locale e
 Warning - 2012-10-24 01:34:59 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
 Warning - 2012-10-24 01:35:01 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
 Warning - 2012-10-24 01:35:07 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-24 02:01:05 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-24 02:01:06 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-24 02:01:07 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-24 02:01:07 --> Parsing Error - syntax error, unexpected '<<' (T_SL) in C:\xampp\htdocs\travelphoto\fuel\app\classes\controller\accounts.php on line 19
+Warning - 2012-10-24 02:01:50 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-24 02:01:56 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-24 02:01:59 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-24 02:02:00 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-24 02:02:02 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-24 02:03:18 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-24 02:03:18 --> Parsing Error - syntax error, unexpected 'public' (T_PUBLIC) in C:\xampp\htdocs\travelphoto\fuel\app\classes\controller\accounts.php on line 98
+Warning - 2012-10-24 02:03:29 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-24 02:03:36 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
