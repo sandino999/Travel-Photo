@@ -1,4 +1,4 @@
 <?php
 return array(
-	'_root_'  => 'accounts',  // The default route
+	'_root_'  => 'mainpage'  // The default route
 );
