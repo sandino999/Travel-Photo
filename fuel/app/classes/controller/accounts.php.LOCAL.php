@@ -16,7 +16,6 @@ class Controller_Accounts extends Controller
 	 */
 	public function action_login()
 	{
-<<<<<<< HEAD
 		$username =  $_POST['txtusername'];
 		$password = $_POST['txtpassword'];
 		
@@ -85,9 +84,6 @@ class Controller_Accounts extends Controller
 	
 		$this->user->validate_update($parameters);
 		
-=======
-		echo 'test';
->>>>>>> 71030b46fa49addbb4f0d9e69ab59eb498e2394e
 	}
 
 	
