@@ -112,3 +112,4 @@ Warning - 2012-10-24 02:48:24 --> Fuel\Core\Fuel::init - The configured locale e
 Error - 2012-10-24 02:48:24 --> 8 - Undefined index: txtusername in C:\xampp\htdocs\tj\fuel\app\classes\controller\accounts.php on line 20
 Warning - 2012-10-24 02:48:42 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
 Error - 2012-10-24 02:48:42 --> Error - The requested view could not be found: startpage/login in C:\xampp\htdocs\tj\fuel\core\classes\view.php on line 381
+Warning - 2012-10-24 02:59:00 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
