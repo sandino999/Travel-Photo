@@ -17,9 +17,8 @@ class Controller_Accounts extends Controller
 	 
 	public function action_login()
 	{
-
-		$username =  $_POST['txtusername'];
-		$password = $_POST['txtpassword'];
+		$username =  input::post('txtusername');
+		$password = input::post('txtpassword');
 		
 		$this->user->validate_login($username,$password);
 	}
@@ -40,18 +39,13 @@ class Controller_Accounts extends Controller
 	
 	public function action_register_validate()
 	{
-		$username = $_POST['username'];
-		$password = $_POST['password'];
-		$retype = $_POST['retype'];
-		$name = $_POST['name'];
-		$email = $_POST['email'];
-		
+	
 		$parameters = array(
-				'username'=> $_POST['username'],
-				'password'=> $_POST['password'],
-				'retype'  => $_POST['retype'],
-				'name'	  => $_POST['name'],
-				'email'   => $_POST['email']
+				'username'=> input::post('username'),
+				'password'=> input::post('password'),
+				'retype'  => input::post('retype'),
+				'name'	  => input::post('name'),
+				'email'   => input::post('email')
 		);
 		
 		$this->user->validate_register($parameters);		
@@ -83,11 +77,11 @@ class Controller_Accounts extends Controller
 	
 	public function action_recover()
 	{
-		$validate = $this->user->validate_recover_password($_POST['username'],$_POST['email']);
+		$validate = $this->user->validate_recover_password(input::post('username'),input::post('email'));
 		
 		if($validate == true)
 		{
-			$this->user->send_email($_POST['email']);	
+			$this->user->send_email(input::post('email'));	
 		}
 		else
 		{

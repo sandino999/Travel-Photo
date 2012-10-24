@@ -5,7 +5,7 @@
 </head>
 <body>
 	
-	<form action='password_validate' method='post'>
+	<form action='register_validate' method='post'>
 		username <input type='text' name='username'> <br/>
 		password <input type='password' name='password'> <br/>
 		retype password <input type='password' name='retype'> <br/>

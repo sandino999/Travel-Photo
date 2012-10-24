@@ -8,7 +8,6 @@
 class Model_User extends Model
 {
 
-	
 	/**
 	 *  validate function for login 
 	 *  paremeters: username password
@@ -16,6 +15,30 @@ class Model_User extends Model
 	
 	public function validate_login($username,$password)
 	{
+		
+		$val = Validation::forge();
+		$val->add_field('username','username','required|min_length[3]');
+		$val->add_field('password','password','required|min_length[3]');
+		
+		if ($val->run( array('username'=>$username,'password'=>$password) ))
+		{
+			echo "true";
+		}
+		else
+		{
+			echo $val->error('username').'<br/>';
+			echo $val->error('password');
+		}
+	
+		//$val->add_field($username,'username','required|trim|valid_string[alpha,lowercase,numeric]');
+		
+		//$val->add('Your username',$username)->add_rule('min_length',3);
+
+		
+		
+		
+		
+/*		
 		$validate = $this->check_login_db($username,$password);    
 		
 			if($username === '' OR $password === '')
@@ -29,7 +52,7 @@ class Model_User extends Model
 			else
 			{
 				echo 'Username and Password match';
-			}
+			}*/
 	}
 	
 	/**
