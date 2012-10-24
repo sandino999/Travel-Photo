@@ -76,7 +76,9 @@ class Model_User extends Model
 						'email'	  => $parameters['email']
 						)
 				);
-				$query->execute();	
+				$query->execute();
+
+				echo "Email sent";
 			}
 	}
 	
@@ -104,6 +106,26 @@ class Model_User extends Model
 		{
 			$query = DB::update('accounts')->set(array('photo'=>$parameters['file_tmp']))->execute();
 			echo 'account updated';
+		}
+	}
+	
+	/** 
+	 *   validate_recover_password checks whether username and password exists in the database
+	 *	 parameters: username, email
+	 */
+	
+	public function validate_recover_password($username,$email)
+	{
+		$query = DB::select()->from('accounts')->execute();
+		
+		foreach($query as $row)
+		{
+			if($row['username'] === $username AND $row['email'] === $email)
+			{
+				return true;
+			}
+			
+			return false;
 		}
 	}
 
@@ -151,6 +173,7 @@ class Model_User extends Model
 		return false;
 	}
 	
+	
 	/** 
 	 *   check_if_email_exists checks whether email already exists in the database
 	 *	 parameters: email
@@ -172,9 +195,52 @@ class Model_User extends Model
 	}
 	
 	/** 
+	 *   send_mail send the link to email parameter with the link to reset password page
+	 *	 parameters: email address
+	 */
+	
+	public function send_email($email_address)
+	{
+		$server_name = $this->get_server_name();
+	
+		$link = $server_name.uri::base().'accounts/change_password';
+		
+		$email = Email::forge();
+		$email->from('Travel-Photo','Travel-Photo');
+		$email->to(array($email_address));
+		$email->subject('Recover Password');
+		$email->body('Click the link to this account to reset your password:'.$link);
+		$email->send();
+	}
+	
+	
+	/** 
+	 *   get_server_name returns the server name for the machine used
+	 *	 parameters:
+	 */
+	
+	public function get_server_name()
+	{
+		$protocol = 'http';
+		if (isset($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] == '443') 
+		{
+		$protocol = 'https';
+		}
+	
+		$host = $_SERVER['HTTP_HOST'];
+		$baseUrl = $protocol . '://' . $host;
+		if (substr($baseUrl, -1)=='/') 
+		{
+			$baseUrl = substr($baseUrl, 0, strlen($baseUrl)-1);
+		}
+	
+	return $baseUrl;
+	}
+	
+	/** 
 	 *   function that hashes the password with username as salt
 	 *	 parameters: username,password
-	 */
+	 */	
 	
 	public function hash_password($username,$password)
 	{

@@ -13,7 +13,7 @@
 	<br/> <input type='checkbox' name='checklogin' id='checklog'> Keep me logged
 
 	<input type='submit' value='Log In' id='submit'>
-	<br/><a href> Forgot Password? </a>
+	<br/><a href='accounts/forgot_password'> Forgot Password? </a>
 	<br/><a href='accounts/register'> register </a>
 	</form>
 	

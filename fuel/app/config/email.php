@@ -14,7 +14,7 @@ return array(
 		/**
 		 * Mail driver (mail, smtp, sendmail)
 		 */
-		'driver'		=> 'mail',
+		'driver'		=> 'smtp',
 
 		/**
 		 * Whether to send as html, set to null for autodetection.
@@ -89,17 +89,17 @@ return array(
 		 * SMTP settings
 		 */
 		'smtp'	=> array(
-			'host'		=> '',
+			'host'		=> 'ssl://smtp.gmail.com',
 			'port'		=> 465,
-			'username'	=> '',
-			'password'	=> '',
+			'username'	=> 'sandino.dolosa@beenest-tech.com',
+			'password'	=> 'luna1700',
 			'timeout'	=> 5,
 		),
 
 		/**
 		 * Newline
 		 */
-		'newline'	=> "\n",
+		'newline'	=> "\r\n",
 
 		/**
 		 * Attachment paths

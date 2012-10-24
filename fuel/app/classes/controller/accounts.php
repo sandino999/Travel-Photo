@@ -14,6 +14,7 @@ class Controller_Accounts extends Controller
 	 * parameters username and password is submitted from login view
 	 *
 	 */
+	 
 	public function action_login()
 	{
 
@@ -53,8 +54,7 @@ class Controller_Accounts extends Controller
 				'email'   => $_POST['email']
 		);
 		
-		$this->user->validate_register($parameters);
-				
+		$this->user->validate_register($parameters);		
 	}
 	
 	/**
@@ -64,7 +64,35 @@ class Controller_Accounts extends Controller
 	
 	public function action_edit()
 	{
-		return Response::forge(View::forge('edit'));
+		return Response::forge(View::forge('startpage/edit'));
+	}
+	
+	/**
+	 *  function which displays forgot password page
+	 * 
+	 */
+	public function action_forgot_password()
+	{
+		return Response::forge(View::forge('startpage/forgot_password'));
+	}
+	
+	/**
+	 *  function which validates reset password
+	 *  paremeters: username, email
+	 */
+	
+	public function action_recover()
+	{
+		$validate = $this->user->validate_recover_password($_POST['username'],$_POST['email']);
+		
+		if($validate == true)
+		{
+			$this->user->send_email($_POST['email']);	
+		}
+		else
+		{
+			echo "no match";
+		}
 	}
 	
 	/**
@@ -83,8 +111,18 @@ class Controller_Accounts extends Controller
 				'name'	  => $_POST['txtname']		
 		);
 	
-		$this->user->validate_update($parameters);
-		
+		$this->user->validate_update($parameters);	
+	}
+	
+	/**
+	 * 
+	 * display the change_password page
+	 * 
+	 */
+	
+	public function action_change_password()
+	{
+		return Response::forge(View::forge('startpage/change_password'), 404);
 	}
 
 	
