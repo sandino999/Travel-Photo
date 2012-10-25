@@ -1,4 +1,5 @@
 <?php
 return array(
-	'_root_'  => 'mainpage'  // The default route
+	'_root_'  => 'front/home',  // The default route
+        'login' => 'mainpage', //login & Registration 
 );

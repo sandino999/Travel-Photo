@@ -1,0 +1,39 @@
+.default-padding {
+    padding:0.2em 0.3em; 
+}
+
+.base-element {
+    width:100%;
+}
+
+.center {
+    margin: 0 auto;
+}
+
+.base-table-empty {
+    display:table;
+}
+
+.base-table-full {
+    .base-table-empty;
+    width:100%;
+}
+
+.base-table-content {
+    .base-table-empty;
+    width:@site-content;
+    .center;
+}
+
+.child-table {
+    display:table-cell;
+}
+
+.child-table-full {
+    .child-table;
+    width:100%;
+}
+
+
+
+@site-content:960px;

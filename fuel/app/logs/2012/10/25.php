@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php defined('COREPATH') or exit('No direct script access allowed'); ?>
 
 Warning - 2012-10-25 01:06:27 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
@@ -847,3 +848,337 @@ Warning - 2012-10-25 10:17:41 --> Fuel\Core\Fuel::init - The configured locale e
 Warning - 2012-10-25 10:17:54 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
 Warning - 2012-10-25 10:18:43 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
 Warning - 2012-10-25 10:18:45 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+=======
+<?php defined('COREPATH') or exit('No direct script access allowed'); ?>
+
+Warning - 2012-10-25 01:06:27 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:06:34 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:07:03 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:07:09 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:07:20 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:07:23 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:09:35 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:09:36 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:09:38 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 01:09:38 --> 8 - Array to string conversion in C:\xampp\htdocs\travel-photo\fuel\app\classes\model\user.php on line 25
+Warning - 2012-10-25 01:09:48 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:10:18 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:10:25 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:10:27 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:12:42 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:12:45 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 01:12:45 --> Parsing Error - syntax error, unexpected '{' in C:\xampp\htdocs\travel-photo\fuel\app\classes\model\user.php on line 26
+Warning - 2012-10-25 01:12:52 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 01:12:52 --> Parsing Error - syntax error, unexpected '{' in C:\xampp\htdocs\travel-photo\fuel\app\classes\model\user.php on line 26
+Warning - 2012-10-25 01:13:05 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:13:12 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:13:56 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:13:58 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:14:00 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:14:06 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:14:10 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:14:41 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:14:52 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:21:20 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:21:22 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:21:23 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 01:21:23 --> 8 - Undefined variable: username in C:\xampp\htdocs\travel-photo\fuel\app\classes\model\user.php on line 56
+Warning - 2012-10-25 01:22:41 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:22:43 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:22:51 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:23:07 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:23:24 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:25:51 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:26:05 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:27:20 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:27:30 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:31:05 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:31:07 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:31:13 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:31:16 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:33:36 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:33:49 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:33:54 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:37:41 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:37:42 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:37:43 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:38:06 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:38:34 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:38:40 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:38:53 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:39:42 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:39:49 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:43:42 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:43:44 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:48:24 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 01:48:24 --> Parsing Error - syntax error, unexpected '$val' (T_VARIABLE) in C:\xampp\htdocs\travel-photo\fuel\app\classes\model\user.php on line 187
+Warning - 2012-10-25 01:48:35 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:48:36 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:49:05 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:50:38 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:50:57 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 01:50:58 --> 8 - Undefined variable: password in C:\xampp\htdocs\travel-photo\fuel\app\classes\model\user.php on line 190
+Warning - 2012-10-25 01:51:07 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:51:51 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:52:08 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:53:59 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:54:01 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:54:05 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:54:06 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:54:10 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:54:12 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:54:13 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:58:12 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:58:16 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 01:58:17 --> 8 - Undefined variable: email in C:\xampp\htdocs\travel-photo\fuel\app\classes\model\user.php on line 271
+Warning - 2012-10-25 01:58:37 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:58:51 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:58:54 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 01:59:09 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 01:59:10 --> 4096 - Object of class Fuel\Core\Database_Result_Cached could not be converted to string in C:\xampp\htdocs\travel-photo\fuel\app\classes\model\user.php on line 272
+Warning - 2012-10-25 01:59:28 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 01:59:29 --> 8 - Undefined index: password in C:\xampp\htdocs\travel-photo\fuel\core\classes\database\result\cached.php on line 48
+Warning - 2012-10-25 01:59:52 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 01:59:53 --> 8 - Undefined index: password in C:\xampp\htdocs\travel-photo\fuel\core\classes\database\result\cached.php on line 48
+Warning - 2012-10-25 02:00:03 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 02:00:04 --> 8 - Undefined index: password in C:\xampp\htdocs\travel-photo\fuel\core\classes\database\result\cached.php on line 48
+Warning - 2012-10-25 02:00:25 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 02:00:26 --> 4096 - Object of class Fuel\Core\Database_Result_Cached could not be converted to string in C:\xampp\htdocs\travel-photo\fuel\app\classes\model\user.php on line 325
+Warning - 2012-10-25 02:00:36 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 02:00:37 --> Error - Function name must be a string in C:\xampp\htdocs\travel-photo\fuel\app\classes\model\user.php on line 325
+Warning - 2012-10-25 02:00:50 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 02:00:51 --> 8 - Undefined index: password in C:\xampp\htdocs\travel-photo\fuel\core\classes\database\result\cached.php on line 48
+Warning - 2012-10-25 02:00:57 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 02:00:58 --> 8 - Array to string conversion in C:\xampp\htdocs\travel-photo\fuel\app\classes\model\user.php on line 325
+Warning - 2012-10-25 02:01:01 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 02:01:05 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 02:01:08 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 02:01:18 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 02:01:23 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 02:01:26 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 02:02:18 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 02:02:21 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 02:02:58 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 02:02:58 --> Parsing Error - syntax error, unexpected 'execute' (T_STRING) in C:\xampp\htdocs\travel-photo\fuel\app\classes\model\user.php on line 323
+Warning - 2012-10-25 02:03:04 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 02:03:12 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 02:04:26 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 02:04:46 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 02:05:02 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 02:05:15 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 02:06:12 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 02:06:24 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 02:09:54 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 02:09:57 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 02:10:02 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 02:10:04 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 02:10:05 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 02:10:10 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 02:33:49 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 02:33:59 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 02:34:05 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 02:34:13 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 02:34:18 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 02:34:21 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 02:34:35 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 02:34:46 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 02:34:54 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 02:35:05 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 02:35:19 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 02:35:28 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 02:35:42 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 05:07:05 --> Parsing Error - syntax error, unexpected ''login'' (T_CONSTANT_ENCAPSED_STRING), expecting ')' in C:\xampp\htdocs\Travel-Photo\fuel\app\config\routes.php on line 4
+Error - 2012-10-25 05:07:54 --> Parsing Error - syntax error, unexpected ''login'' (T_CONSTANT_ENCAPSED_STRING), expecting ')' in C:\xampp\htdocs\Travel-Photo\fuel\app\config\routes.php on line 4
+Error - 2012-10-25 05:08:23 --> Parsing Error - syntax error, unexpected ''login'' (T_CONSTANT_ENCAPSED_STRING), expecting ')' in C:\xampp\htdocs\Travel-Photo\fuel\app\config\routes.php on line 4
+Warning - 2012-10-25 05:09:19 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 05:09:40 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 05:12:35 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 05:13:18 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 05:13:25 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 05:13:35 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 05:13:42 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 05:14:10 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 05:14:15 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 05:14:16 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 05:14:19 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 05:18:17 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 05:18:55 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 05:19:04 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 05:26:02 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 05:26:11 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 05:28:16 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 05:28:17 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 05:28:57 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 05:28:57 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 05:28:57 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 05:29:18 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 05:29:19 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 05:29:40 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 05:29:52 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 05:30:06 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 05:31:21 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 05:31:35 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 05:35:28 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 05:35:43 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 05:36:11 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 05:37:12 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 05:52:58 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 05:54:34 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 05:54:36 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 05:54:36 --> 2048 - Declaration of Controller_user_dashboard::after() should be compatible with Fuel\Core\Controller::after($response) in C:\xampp\htdocs\Travel-Photo\fuel\app\classes\controller\user\dashboard.php on line 13
+Warning - 2012-10-25 05:55:02 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 05:55:03 --> 8 - Undefined variable: username in C:\xampp\htdocs\Travel-Photo\fuel\app\views\user\dashboard.php on line 4
+Warning - 2012-10-25 05:55:09 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 05:55:09 --> 8 - Undefined variable: username in C:\xampp\htdocs\Travel-Photo\fuel\app\views\user\dashboard.php on line 4
+Warning - 2012-10-25 05:55:11 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 05:55:11 --> 8 - Undefined variable: username in C:\xampp\htdocs\Travel-Photo\fuel\app\views\user\dashboard.php on line 4
+Warning - 2012-10-25 05:55:38 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 05:55:38 --> 8 - Use of undefined constant s - assumed 's' in C:\xampp\htdocs\Travel-Photo\fuel\app\views\user\dashboard.php on line 8
+Warning - 2012-10-25 05:55:48 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 06:01:16 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 06:06:16 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 06:06:19 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 06:07:36 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 06:12:16 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 06:14:57 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 06:15:14 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 06:15:23 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 07:04:06 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 07:04:06 --> 2 - Missing argument 2 for MyHtml::start(), called in C:\xampp\htdocs\Travel-Photo\fuel\app\views\front\front template.php on line 45 and defined in C:\xampp\htdocs\Travel-Photo\fuel\app\classes\MyHtml.php on line 17
+Warning - 2012-10-25 07:04:22 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 07:04:22 --> Error - Using $this when not in object context in C:\xampp\htdocs\Travel-Photo\fuel\app\classes\MyHtml.php on line 17
+Warning - 2012-10-25 07:05:39 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 07:05:40 --> Error - Using $this when not in object context in C:\xampp\htdocs\Travel-Photo\fuel\app\classes\MyHtml.php on line 17
+Warning - 2012-10-25 07:09:30 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 07:09:30 --> Error - Using $this when not in object context in C:\xampp\htdocs\Travel-Photo\fuel\app\classes\MyHtml.php on line 17
+Warning - 2012-10-25 07:09:31 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 07:09:31 --> Error - Using $this when not in object context in C:\xampp\htdocs\Travel-Photo\fuel\app\classes\MyHtml.php on line 17
+Warning - 2012-10-25 07:09:31 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 07:09:31 --> Error - Using $this when not in object context in C:\xampp\htdocs\Travel-Photo\fuel\app\classes\MyHtml.php on line 17
+Warning - 2012-10-25 07:11:48 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 07:11:49 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 07:16:00 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 07:16:00 --> Error - Call to undefined method MyHtml::start() in C:\xampp\htdocs\Travel-Photo\fuel\app\views\front\front template.php on line 45
+Warning - 2012-10-25 07:16:01 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 07:16:01 --> Error - Call to undefined method MyHtml::start() in C:\xampp\htdocs\Travel-Photo\fuel\app\views\front\front template.php on line 45
+Warning - 2012-10-25 07:17:26 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 07:18:27 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 07:19:39 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 07:20:04 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 07:20:27 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 07:20:58 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 07:22:58 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 07:23:21 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 07:27:14 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 07:27:14 --> Error - Call to undefined method MyHtml::form() in C:\xampp\htdocs\Travel-Photo\fuel\app\views\front\front template.php on line 47
+Warning - 2012-10-25 07:27:28 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 07:34:59 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 07:34:59 --> 8 - Array to string conversion in C:\xampp\htdocs\Travel-Photo\fuel\app\classes\MyHtml.php on line 41
+Warning - 2012-10-25 07:35:23 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 07:35:23 --> 8 - Array to string conversion in C:\xampp\htdocs\Travel-Photo\fuel\app\classes\MyHtml.php on line 41
+Warning - 2012-10-25 07:35:24 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 07:35:24 --> 8 - Array to string conversion in C:\xampp\htdocs\Travel-Photo\fuel\app\classes\MyHtml.php on line 41
+Warning - 2012-10-25 07:39:26 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 07:39:27 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 07:41:12 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 07:41:58 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 07:53:14 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 07:53:14 --> Error - Class 'Html\MyHtml' not found in C:\xampp\htdocs\Travel-Photo\fuel\app\views\front\front template.php on line 45
+Warning - 2012-10-25 07:53:45 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 07:53:45 --> Error - Class 'Html\MyHtml' not found in C:\xampp\htdocs\Travel-Photo\fuel\app\views\front\front template.php on line 45
+Warning - 2012-10-25 07:54:01 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 07:54:01 --> Error - Call to undefined function Html\MyHtml() in C:\xampp\htdocs\Travel-Photo\fuel\app\views\front\front template.php on line 45
+Warning - 2012-10-25 07:54:08 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 07:54:08 --> Error - Class 'Html\MyHtml' not found in C:\xampp\htdocs\Travel-Photo\fuel\app\views\front\front template.php on line 45
+Warning - 2012-10-25 07:54:59 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 07:54:59 --> Error - Class 'Html\MyHtml' not found in C:\xampp\htdocs\Travel-Photo\fuel\app\views\front\front template.php on line 45
+Warning - 2012-10-25 07:55:00 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 07:55:00 --> Error - Class 'Html\MyHtml' not found in C:\xampp\htdocs\Travel-Photo\fuel\app\views\front\front template.php on line 45
+Warning - 2012-10-25 07:55:36 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 07:55:37 --> Error - Class 'Html\MyHtml' not found in C:\xampp\htdocs\Travel-Photo\fuel\app\views\front\front template.php on line 45
+Warning - 2012-10-25 07:55:37 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 07:55:37 --> Error - Class 'Html\MyHtml' not found in C:\xampp\htdocs\Travel-Photo\fuel\app\views\front\front template.php on line 45
+Warning - 2012-10-25 07:55:38 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 07:55:38 --> Error - Class 'Html\MyHtml' not found in C:\xampp\htdocs\Travel-Photo\fuel\app\views\front\front template.php on line 45
+Warning - 2012-10-25 07:55:38 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 07:55:38 --> Error - Class 'Html\MyHtml' not found in C:\xampp\htdocs\Travel-Photo\fuel\app\views\front\front template.php on line 45
+Warning - 2012-10-25 07:55:46 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 07:55:46 --> Error - Class 'Html\MyHtml' not found in C:\xampp\htdocs\Travel-Photo\fuel\app\views\front\front template.php on line 45
+Warning - 2012-10-25 07:55:47 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 07:55:47 --> Error - Class 'Html\MyHtml' not found in C:\xampp\htdocs\Travel-Photo\fuel\app\views\front\front template.php on line 45
+Warning - 2012-10-25 07:55:47 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 07:55:47 --> Error - Class 'Html\MyHtml' not found in C:\xampp\htdocs\Travel-Photo\fuel\app\views\front\front template.php on line 45
+Warning - 2012-10-25 07:55:47 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 07:55:47 --> Error - Class 'Html\MyHtml' not found in C:\xampp\htdocs\Travel-Photo\fuel\app\views\front\front template.php on line 45
+Warning - 2012-10-25 07:56:51 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 07:56:51 --> Error - Class 'Html\MyHtml' not found in C:\xampp\htdocs\Travel-Photo\fuel\app\views\front\front template.php on line 45
+Warning - 2012-10-25 07:56:51 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 07:56:51 --> Error - Class 'Html\MyHtml' not found in C:\xampp\htdocs\Travel-Photo\fuel\app\views\front\front template.php on line 45
+Warning - 2012-10-25 07:56:52 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 07:56:52 --> Error - Class 'Html\MyHtml' not found in C:\xampp\htdocs\Travel-Photo\fuel\app\views\front\front template.php on line 45
+Warning - 2012-10-25 07:56:52 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 07:56:52 --> Error - Class 'Html\MyHtml' not found in C:\xampp\htdocs\Travel-Photo\fuel\app\views\front\front template.php on line 45
+Warning - 2012-10-25 08:08:04 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 08:08:04 --> Error - Class 'Html\MyHtml' not found in C:\xampp\htdocs\Travel-Photo\fuel\app\views\front\front template.php on line 45
+Warning - 2012-10-25 08:12:56 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 08:12:56 --> Error - Class 'Html_MyHtml' not found in C:\xampp\htdocs\Travel-Photo\fuel\app\views\front\front template.php on line 45
+Warning - 2012-10-25 08:12:56 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 08:12:56 --> Error - Class 'Html_MyHtml' not found in C:\xampp\htdocs\Travel-Photo\fuel\app\views\front\front template.php on line 45
+Warning - 2012-10-25 08:12:57 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 08:12:57 --> Error - Class 'Html_MyHtml' not found in C:\xampp\htdocs\Travel-Photo\fuel\app\views\front\front template.php on line 45
+Warning - 2012-10-25 08:14:57 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 08:14:57 --> Error - Class 'styleAide_Myhtml' not found in C:\xampp\htdocs\Travel-Photo\fuel\app\views\front\front template.php on line 45
+Warning - 2012-10-25 08:15:19 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 08:15:19 --> Error - Class 'styleAide_MyHtml' not found in C:\xampp\htdocs\Travel-Photo\fuel\app\views\front\front template.php on line 45
+Warning - 2012-10-25 08:15:19 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 08:15:19 --> Error - Class 'styleAide_MyHtml' not found in C:\xampp\htdocs\Travel-Photo\fuel\app\views\front\front template.php on line 45
+Warning - 2012-10-25 08:15:20 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 08:15:20 --> Error - Class 'styleAide_MyHtml' not found in C:\xampp\htdocs\Travel-Photo\fuel\app\views\front\front template.php on line 45
+Warning - 2012-10-25 08:17:13 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 08:17:36 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 08:20:28 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 08:22:57 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 08:32:06 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 08:32:06 --> 8 - Undefined variable: type in C:\xampp\htdocs\Travel-Photo\fuel\app\classes\MyHtml.php on line 64
+Warning - 2012-10-25 08:32:15 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 08:32:27 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 08:40:41 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 08:40:41 --> Error - Class 'Html_myHtml' not found in C:\xampp\htdocs\Travel-Photo\fuel\app\views\front\front template.php on line 45
+Warning - 2012-10-25 08:47:36 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-25 09:20:56 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 09:20:56 --> Error - Class 'sample\Fuel\Core\Html' not found in C:\xampp\htdocs\Travel-Photo\fuel\app\classes\myhtml.php on line 15
+Warning - 2012-10-25 09:22:08 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 09:22:08 --> Error - Class 'MyHtml' not found in C:\xampp\htdocs\Travel-Photo\fuel\app\views\front\front template.php on line 45
+Warning - 2012-10-25 09:23:54 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 09:23:54 --> Parsing Error - syntax error, unexpected '/' in C:\xampp\htdocs\Travel-Photo\fuel\app\views\front\front template.php on line 46
+Warning - 2012-10-25 09:24:02 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 09:24:02 --> Error - Class 'sample' not found in C:\xampp\htdocs\Travel-Photo\fuel\app\views\front\front template.php on line 46
+Warning - 2012-10-25 09:25:14 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 09:25:14 --> Error - Class 'sample\MyHtml' not found in C:\xampp\htdocs\Travel-Photo\fuel\app\views\front\front template.php on line 46
+Warning - 2012-10-25 09:26:24 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 09:26:24 --> Error - Class 'sample\myhtml' not found in C:\xampp\htdocs\Travel-Photo\fuel\app\views\front\front template.php on line 46
+Warning - 2012-10-25 09:27:50 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 09:27:50 --> Error - Class 'sample\myhtml' not found in C:\xampp\htdocs\Travel-Photo\fuel\app\views\front\front template.php on line 47
+Warning - 2012-10-25 09:28:15 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 09:28:15 --> Error - Class 'sample_myhtml' not found in C:\xampp\htdocs\Travel-Photo\fuel\app\views\front\front template.php on line 46
+Warning - 2012-10-25 09:28:16 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 09:28:16 --> Error - Class 'sample_myhtml' not found in C:\xampp\htdocs\Travel-Photo\fuel\app\views\front\front template.php on line 46
+Warning - 2012-10-25 09:34:42 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 09:34:42 --> Error - Class 'sample\myhtml' not found in C:\xampp\htdocs\Travel-Photo\fuel\app\views\front\front template.php on line 46
+Warning - 2012-10-25 09:36:55 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 09:36:55 --> Error - Class 'sample\myhtml' not found in C:\xampp\htdocs\Travel-Photo\fuel\app\views\front\front template.php on line 46
+Warning - 2012-10-25 09:36:55 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 09:36:55 --> Error - Class 'sample\myhtml' not found in C:\xampp\htdocs\Travel-Photo\fuel\app\views\front\front template.php on line 46
+Warning - 2012-10-25 09:36:56 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 09:36:56 --> Error - Class 'sample\myhtml' not found in C:\xampp\htdocs\Travel-Photo\fuel\app\views\front\front template.php on line 46
+Warning - 2012-10-25 09:36:56 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 09:36:56 --> Error - Class 'sample\myhtml' not found in C:\xampp\htdocs\Travel-Photo\fuel\app\views\front\front template.php on line 46
+Warning - 2012-10-25 09:36:56 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 09:36:56 --> Error - Class 'sample\myhtml' not found in C:\xampp\htdocs\Travel-Photo\fuel\app\views\front\front template.php on line 46
+Warning - 2012-10-25 09:37:23 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 09:37:23 --> 2 - include(classes\myhtml.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Travel-Photo\fuel\core\classes\autoloader.php on line 236
+Warning - 2012-10-25 09:38:17 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 09:38:17 --> Error - Class 'Html' not found in C:\xampp\htdocs\Travel-Photo\fuel\app\views\front\front template.php on line 46
+Warning - 2012-10-25 09:40:43 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-25 09:40:43 --> Error - Class 'Html' not found in C:\xampp\htdocs\Travel-Photo\fuel\app\views\front\front template.php on line 46
+>>>>>>> Add the Front Page and HTML extended Plugin.
