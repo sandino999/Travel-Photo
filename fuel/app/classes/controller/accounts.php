@@ -20,7 +20,18 @@ class Controller_Accounts extends Controller
 		$username =  input::post('txtusername');
 		$password = input::post('txtpassword');
 		
-		$this->user->validate_login($username,$password);
+		//$this->user->validate_login($username,$password);
+		$error_message = $this->user->validate_login($username,$password);
+		
+		if($error_message == null)
+		{
+			echo "You are logged in";
+		}
+		else
+		{
+			return Response::forge(View::forge('startpage/login',array('message'=>$error_message)));
+			
+		}
 	}
 	
 	/**
@@ -58,7 +69,8 @@ class Controller_Accounts extends Controller
 	
 	public function action_edit()
 	{
-		return Response::forge(View::forge('startpage/edit'));
+		$profile = $this->user->get_profile_settings(Session::get('user_id'));		
+		return Response::forge(View::forge('startpage/edit',array('profile'=>$profile)));	
 	}
 	
 	/**
@@ -104,8 +116,9 @@ class Controller_Accounts extends Controller
 				'file_error'  => $_FILES['picture']['error'],
 				'name'	  => $_POST['txtname']		
 		);
-	
+		
 		$this->user->validate_update($parameters);	
+		
 	}
 	
 	/**
@@ -115,9 +128,18 @@ class Controller_Accounts extends Controller
 	 */
 	
 	public function action_change_password($id)
-	{	
-		//echo $id;
-		return Response::forge(View::forge('startpage/change_password'), 404);	
+	{
+		return Response::forge(View::forge('startpage/change_password',array('id'=>$id)));		
+	}
+	
+	/**
+	 * function for password reset and validation
+	 * paremeters: password, retype password
+	 */
+	
+	public function action_password_reset()
+	{
+		$this->user->validate_password(input::post('password'),input::post('retype'),input::post('id'));
 	}
 
 	

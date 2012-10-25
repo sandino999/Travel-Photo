@@ -11,8 +11,9 @@ class Controller_Mainpage extends Controller
 	 * @return  Response
 	 */
 	public function action_index()
-	{
-		return Response::forge(View::forge('startpage/login'));	
+	{	
+		$message='';
+		return Response::forge(View::forge('startpage/login',array('message'=>$message)));	
 	}
   
 	/**

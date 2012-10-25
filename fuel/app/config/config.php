@@ -228,6 +228,7 @@ return array(
 			'orm',
 			'auth',
 			'email',
+			
 		),
 
 		/**

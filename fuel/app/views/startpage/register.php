@@ -11,7 +11,7 @@
 		retype password <input type='password' name='retype'> <br/>
 		name <input type='text' name='name'> <br/>
 		email <input type='text' name='email'>
-		 <input type='submit' value='register'>
+		 <br/><input type='submit' value='register'>
 	</form>
 	
 </body>
