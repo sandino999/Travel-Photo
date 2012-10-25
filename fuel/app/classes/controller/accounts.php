@@ -114,9 +114,10 @@ class Controller_Accounts extends Controller
 	 * 
 	 */
 	
-	public function action_change_password()
-	{
-		return Response::forge(View::forge('startpage/change_password'), 404);
+	public function action_change_password($id)
+	{	
+		//echo $id;
+		return Response::forge(View::forge('startpage/change_password'), 404);	
 	}
 
 	
