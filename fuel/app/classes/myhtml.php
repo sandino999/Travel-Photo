@@ -10,10 +10,7 @@
  *
  * @author Aldrich Allen Barcenas
  */
-namespace sample;
-    use Fuel\Core as kore;
-
-    class MyHtml extends kore\Html {
+    class MyHtml extends Fuel\Core\Html {
         private $table = null;
 
         public function __construct($table) {
