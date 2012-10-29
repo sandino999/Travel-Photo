@@ -58,7 +58,7 @@
             }
         }
         
-        public function submit ($fieldname,$print = true,$value = '') {
+        public function submit ($fieldname,$print = true,$value = 'Submit') {
             $attr = array(
                 'id' => $fieldname,
                 'class' => 'btn btn-primary'
@@ -67,7 +67,26 @@
                     '<section>'.
                     '</section>'.
                     '<section>'.
-                    \Fuel\Core\Form::submit($fieldname, 'Submit',$attr).
+                    \Fuel\Core\Form::submit($fieldname, $value ,$attr).
+                    '</section>'.
+                    '</article>';
+            if ($print == FALSE) {
+                return $form;
+            } else {
+                print $form;
+            }
+        }
+        
+        public function hidden ($fieldname,$value='',$print = true){
+            $attr = array(
+                'id' => $fieldname,
+                'class' => 'btn btn-primary'
+            );
+            $form = '<article class="'. $this->table .'">'.
+                    '<section>'.
+                    '</section>'.
+                    '<section>'.
+                    \Fuel\Core\Form::hidden($fieldname, $value).
                     '</section>'.
                     '</article>';
             if ($print == FALSE) {

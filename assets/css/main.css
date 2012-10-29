@@ -35,6 +35,18 @@ html label {
 .form-item section:nth-child(1) {
   text-align: right;
 }
+.journal-item {
+  width: 15em;
+  height: 20em;
+  background-color: grey;
+  float: left;
+  margin: 0.3em;
+}
+.journal-item footer ul li {
+  list-style-type: none;
+  display: inline;
+  margin: 0 0.3em;
+}
 .default-padding {
   padding: 0.2em 0.3em;
 }
@@ -63,20 +75,34 @@ html label {
   display: table-cell;
   width: 100%;
 }
-header {
+#front-side-header-element {
   width: 100%;
   background-color: #faf7f7;
 }
-header #front-site-header section:nth-child(1) {
+#front-side-header-element #front-site-header section:nth-child(1) {
   width: 30%;
 }
-header #front-site-header section:nth-child(2) h1 {
+#front-side-header-element #front-site-header section:nth-child(2) h1 {
   text-align: center;
 }
-header #front-site-header section:nth-child(3) {
+#front-side-header-element #front-site-header section:nth-child(3) {
   width: 30%;
   text-align: right;
 }
-header #front-site-header section {
+#front-side-header-element #front-site-header section {
   vertical-align: middle;
+}
+#journal-content section:nth-child(1) {
+  width: 80%;
+}
+#journal-content section:nth-child(1) article header {
+  display: block;
+  margin: 0.3em 0;
+}
+#journal-content section:nth-child(1) article section {
+  display: block;
+  width: 100%;
+}
+#journal-content section:nth-child(2) {
+  width: 20%;
 }

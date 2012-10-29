@@ -6,9 +6,9 @@
 return array(
 	'default' => array(
 		'connection'  => array(
-			'dsn'        => 'mysql:host=localhost;dbname=bn_travel_journal',
-			'username'   => 'root',
-			'password'   => '',
+			'dsn'        => 'mysql:host=localhost;dbname=travelphotos',
+			'username'   => 'developer',
+			'password'   => 'password',
 		),
 	),
 );
