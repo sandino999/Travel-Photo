@@ -40,6 +40,12 @@ html label {
   height: 20em;
   background-color: grey;
   float: left;
+  margin: 0.3em;
+}
+.journal-item footer ul li {
+  list-style-type: none;
+  display: inline;
+  margin: 0 0.3em;
 }
 .default-padding {
   padding: 0.2em 0.3em;
@@ -95,6 +101,7 @@ html label {
 }
 #journal-content section:nth-child(1) article section {
   display: block;
+  width: 100%;
 }
 #journal-content section:nth-child(2) {
   width: 20%;
