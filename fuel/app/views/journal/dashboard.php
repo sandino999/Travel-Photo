@@ -62,6 +62,9 @@
                                                     )); ?></li>
                                             <li>Comment</li>
                                             <li>Like</li>
+                                            <li>
+                                                <?php print Fuel\Core\Html::anchor('/journal/main/delete/'.$item->id, 'Delete');?>
+                                            </li>
                                         </ul>
                                     </footer>
                                 </article>
@@ -82,6 +85,21 @@
                 <header class="modal-header"><h2>Edit Journal</h2></header>
                 <section class="modal-body"></section>
                 <footer class="modal-footer"></footer>
+            </article>
+            
+            <article class="modal hide fade" id="add-journal">
+                <section class="modal-header"><h1>Add Journal</h1></section>
+                <section class="modal-body">
+                    <?php 
+                        $form = new MyHtml('form-item');
+                        echo \Fuel\Core\Form::open('journal/main/add');
+                        $form->input('journal_name', 'text', 'Name');
+                        $form->textarea('journal_description', 'text', 'Description');
+                        $form->submit('Submit');
+                        echo \Fuel\Core\Form::close();
+                    ?>
+                </section>
+                <section class="modal-footer"></section>
             </article>
         </footer>
     </body>

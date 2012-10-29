@@ -18,6 +18,15 @@ class Controller_journal_main  extends Controller {
        Fuel\Core\Response::redirect('db');
    }
    
+   public function action_edit () {
+       Model_Journal::edit_journal();
+       Fuel\Core\Response::redirect('db');
+   }
+   
+   public function action_delete($id) {
+       Model_Journal::delete_journal($id);
+       Fuel\Core\Response::redirect('db');
+   }
 }
 
 ?>
