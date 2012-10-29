@@ -10,7 +10,7 @@
         ?>
     </head>
     <body>
-        <header class="base-element">
+        <header id="front-side-header-element" class="base-element">
             <nav id="front-site-header" class="base-table-content">
                 <section class="child-table default-padding">
                     <input type="text"/>

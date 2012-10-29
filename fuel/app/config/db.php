@@ -13,8 +13,13 @@ return array(
 	 */
 	'default' => array(
 		'type'        => 'pdo',
-		'connection'  => array(
-			'persistent' => false,
+	'connection'     => array(
+        'hostname'       => 'localhost',
+        'database'       => 'bn_travel_journal',
+        'username'       => 'root',
+        'password'       => '',
+        'persistent'     => false,
+        'compress'       => false,
 		),
 		'identifier'   => '`',
 		'table_prefix' => '',

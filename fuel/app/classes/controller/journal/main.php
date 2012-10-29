@@ -10,9 +10,12 @@
  *
  * @author user
  */
-class Controller_journal_main  extends Controller { 
+
+class Controller_journal_main  extends Controller {
+   
    public function action_add () {
-       echo 'added';
+       Model_Journal::add_journal();
+       Fuel\Core\Response::redirect('front/home');
    }
 }
 
