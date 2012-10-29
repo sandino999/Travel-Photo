@@ -21,7 +21,7 @@
                 <section class="child-table default-padding">
                     <?php 
                         $list = array(
-                             Fuel\Core\Html::anchor('login','Login'),
+                             Fuel\Core\Html::anchor('login','Login'),                  
                              Fuel\Core\Html::anchor('#add-journal', 'Add', 
                                      array(
                                          'data-toggle' => 'modal'   
