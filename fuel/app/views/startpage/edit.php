@@ -10,8 +10,9 @@
 				$server_name =  Session::instance()->get('server');				
 				$photo = $server_name.'/travel-photo/assets/img/profile_picture/'.$row['photo'];
 				$email = $row['email'];
-				$username = $row['username'];
+				$username = $row['user'];
 				$name = $row['name'];
+				
 			}	
 	?>
 	<div style="position:relative; top:200;height:0px;left:700">
@@ -23,7 +24,7 @@
 			Email Address <input type='text' name='txtemail' value='<?php echo $email; ?>' id='email'>
 			<font color='red'><span id='return_email'></span></font><br/>
 			
-			Password <input type = button value ='Change Password'><br/>
+			Password<br/>
 			
 			Name <input type='text' name='txtname' value='<?php echo $name; ?>' id='name'> 
 			<font color='red'><span id='return_name'></span></font><br/>
@@ -35,6 +36,12 @@
 			<input type='file' value='Upload Image' name='picture'><br/>
 			<input type='submit' value='Save Profile'>
 		</form>
+		
+		<div style="position:relative; top:-225;height:0px;left:65">
+		<form action='password_change'>
+			<input type='submit' value='change password' name='btnchange_password	'>
+		</form>
+		
 	</div>
 	
 	<script src="http://code.jquery.com/jquery-latest.js"></script>

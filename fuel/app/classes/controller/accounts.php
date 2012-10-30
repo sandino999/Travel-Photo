@@ -86,7 +86,6 @@ class Controller_Accounts extends Controller
 		$error_message = '';
 		$profile = $this->user->get_profile_settings(Session::get('user_id'));		
 		return Response::forge(View::forge('startpage/edit',array('profile'=>$profile,'message'=>$error_message)));	
-		
 	}
 	
 	/**
@@ -163,6 +162,43 @@ class Controller_Accounts extends Controller
 	{
 		$message = '';
 		return Response::forge(View::forge('startpage/change_password',array('id'=>$id,'message'=>$message)));		
+	}
+	
+	/**
+	 * 
+	 * function that display password change for edit profile
+	 */
+	
+	
+	public function action_password_change()
+	{
+		$message = '';
+		return Response::forge(View::forge('startpage/password_change',array('message'=>$message)));
+	}
+	
+	/**
+	 * function that validates the fields for password edit
+	 *	parameters : old password, new password, retype password
+	 */
+	
+	public function action_password_validate()
+	{
+		$password = array(
+			'old' => input::post('old_passwd'),
+			'new' => input::post('new_passwd'),
+			'retype' => input::post('retype_passwd')
+		);
+		
+		$error_message = $this->user->validate_password_edit($password);
+		
+		if($error_message == null)
+		{
+			echo "Password Changed"; // dummy echo
+		}
+		else
+		{
+			return Response::forge(View::forge('startpage/password_change',array('message'=>$error_message)));
+		}
 	}
 	
 	/**
