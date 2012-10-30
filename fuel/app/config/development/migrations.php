@@ -19,6 +19,10 @@ return array(
 				10 => '009_create_notifications',
 				11 => '010_drop_journals',
 				12 => '011_create_journals',
+				13 => '012_add_desc_to_photos',
+				14 => '012_add_folder_to_photos',
+				15 => '013_add_date_to_photos',
+				16 => '014_add_desc_to_photos',
 			),
 		),
 		'module' => 
