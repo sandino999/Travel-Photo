@@ -1814,3 +1814,9 @@ Warning - 2012-10-29 08:51:49 --> Fuel\Core\Fuel::init - The configured locale e
 Warning - 2012-10-29 08:52:28 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
 Warning - 2012-10-29 08:52:31 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
 >>>>>>> 5fba2ed18823696e1f093f53a84db92302d6de56
+Warning - 2012-10-29 09:25:16 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-29 09:25:19 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-29 09:25:23 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-29 09:25:23 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-29 09:25:24 --> 1049 - SQLSTATE[HY000] [1049] Unknown database 'bn_travel_journal' in C:\xampp\htdocs\travel-photo\fuel\core\classes\database\pdo\connection.php on line 94
+Warning - 2012-10-29 09:30:22 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
