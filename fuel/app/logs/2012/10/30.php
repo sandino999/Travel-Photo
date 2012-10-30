@@ -315,3 +315,27 @@ Warning - 2012-10-30 09:09:59 --> Fuel\Core\Fuel::init - The configured locale e
 Warning - 2012-10-30 09:10:00 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
 Warning - 2012-10-30 09:10:02 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
 Warning - 2012-10-30 09:10:03 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-30 12:35:28 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-30 12:35:30 --> Error - SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'desc' with query: "ALTER TABLE `photos` 
+	ADD `desc` text NOT NULL" in E:\Games2\xampp\htdocs\Travel-Photo\fuel\core\classes\database\pdo\connection.php on line 175
+Warning - 2012-10-30 12:37:50 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-30 12:37:58 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-30 12:38:29 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-30 12:38:44 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-30 12:38:45 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-30 12:38:50 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-30 12:38:52 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-30 12:38:52 --> 2 - Invalid argument supplied for foreach() in E:\Games2\xampp\htdocs\Travel-Photo\fuel\app\classes\model\photo.php on line 9
+Warning - 2012-10-30 12:39:18 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-30 12:39:18 --> Error - Call to undefined function Fuel\Core\finfo_open() in E:\Games2\xampp\htdocs\Travel-Photo\fuel\core\classes\upload.php on line 341
+Warning - 2012-10-30 12:40:01 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Error - 2012-10-30 12:40:01 --> Error - Call to undefined function Fuel\Core\finfo_open() in E:\Games2\xampp\htdocs\Travel-Photo\fuel\core\classes\upload.php on line 341
+Warning - 2012-10-30 12:40:13 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-30 12:40:27 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-30 12:40:34 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-30 12:53:34 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-30 12:53:35 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-30 12:53:38 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-30 12:53:39 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-30 12:53:41 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+Warning - 2012-10-30 12:53:42 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
