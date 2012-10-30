@@ -1,7 +1,7 @@
 <?php
 
 	/** 
-	 *   Model_User for handles data for User login,registration and validation
+	 *   Model_User for handles data for User login, Registration, Forgot Password and Edit Profile Accounts 
 	 *
 	 */
 
@@ -26,24 +26,17 @@ class Model_User extends Model
 			
 			if($check == true)  
 			{
-				$this->set_session_parameters($username);
-				
-				//echo "valid username and password";
+				$this->set_session_parameters($username);	
 			}
 			else
 			{
-				//echo 'invalid username password';
-				return 'invalid username password';
+				$error_type = 1;
+				return $this->get_error_message($error_type);
 			}
 		}
 		else
-		{
-		
-			/*echo $val->error('username').'<br/>';
-			echo $val->error('password');*/
-			
-			return $val->error('username')."\r\n".$val->error('password');
-					
+		{		
+			return $val->error('username').' '.$val->error('password');		
 		}
 	}
 	
@@ -60,94 +53,113 @@ class Model_User extends Model
 		$retype = $parameters['retype'];
 		$name = $parameters['name'];
 		
-		$val = Validation::forge();
-		$val->add_field('username','username','required|min_length[3]');
+		$val = Validation::forge();			// starts validation using fuelphp validation class
+		
+		$val->add_field('username','username','required|min_length[2]');
 		$val->add_field('password','password','required|min_length[8]');
-		$val->add_field('email','email','required|min_length[3]|valid_email');
+		$val->add_field('email','email','required|min_length[2]|valid_email');
 		$val->add_field('retype','retype password','required|min_length[8]');
-		$val->add_field('name','name','required|min_length[3]');
+		$val->add_field('name','name','required|min_length[2]');
 		
 		if ($val->run(array('username'=>$username,'password'=>$password,'email'=>$email,'retype'=>$retype,'name'=>$name)))
 		{
 			$validate_username = $this->check_if_username_exists($val->validated('username'));	// calls function to check if username exists in the database
 			$validate_email = $this->check_if_email_exists($val->validated('email'));			// calls function to check if email exists in the database
 			
-			if($val->validated('password') != $val->validated('retype'))
+			if($val->validated('password') != $val->validated('retype'))	// checks if validated password == validated retype password
 			{
-				echo 'password does not match';
+				$error_type = 2;
+				return $this->get_error_message($error_type);
 			}
-			elseif($validate_email == true)
+			elseif($validate_email == true)			// checks if email exists in  the database
 			{
-				echo 'email already exists in the database';
+				$error_type = 3;
+				return $this->get_error_message($error_type);
 			}
-			elseif($validate_username == true)
+			elseif($validate_username == true)		// checks if username exists in the database
 			{
-				echo 'username already exists in the database';
+				$error_type = 4;
+				return $this->get_error_message($error_type);
 			}
 			else
 			{
-				$password_sha = $this->hash_password($val->validated('username'),$val->validated('password'));
+				$password_sha = $this->hash_password($val->validated('username'),$val->validated('password'));  // calls function hash_password to hash the password with username as salt
 				
-				$query = DB::insert('accounts');	
+				$query = DB::insert('users');	
 				$query->set(array(
-						'username'=> $parameters['username'],
-						'password'=> $password_sha,
+						'user'=> $parameters['username'],
+						'pass'=> $password_sha,
 						'name'	  => $parameters['name'],
-						'email'	  => $parameters['email']
+						'email'	  => $parameters['email'],
+						'photo'   => 'default.gif'
 						)
 				);
 				$query->execute();
-
-				echo "registered";
-			}
-			
+			}	
 		}
 		else
-		{
-		
-			echo $val->error('username').'<br/>';
-			echo $val->error('password').'<br/>';
-			echo $val->error('email').'<br/>';
-			echo $val->error('retype').'<br/>';
-			echo $val->error('name').'<br/>';
-		
+		{	
+			return 	$val->error('username').' '.$val->error('password').' '
+					.$val->error('email').' '.$val->error('retype').' '.$val->error('name');
 		}	
+		
 	}
 	
 	/**
 	 *  validate_update function for edit profile
-	 *  paremeters: file_name, file_size, file_tmp, name
+	 *  paremeters: file_name, file_size, file_tmp, name,username,email
 	 */
 	
 	public function validate_update($parameters)
 	{
-		
+		echo Session::instance()->get('email');
+		$validate_username = $this->check_username_update($parameters['username']);	// calls function to check if username exists
+		$validate_email = $this->check_email_update($parameters['email']);		// calls function to check if email exists
+			
 		$config = array(
-		'path' => DOCROOT.'profile_picture',		
+		'path' => DOCROOT.'assets/img/profile_picture',		
 		'auto_rename' => false,		
 		'overwrite'   => false			//allow overwrites of duplicate files
 		);
 		
 		Upload::process($config);		// process validation of file
 		
-		
-		if($parameters['file_size'] > 1024 * 1024 * 4 )  // check if file size exceeds 1mb
+		if($parameters['username'] == '' OR $parameters['name'] == '' OR $parameters['email'] == '')		
 		{
-			echo 'File Size exceeds 4mb';
+			$error_type = 6;
+			return $this->get_error_message($error_type);
 		}
-		elseif($parameters['file_size'] == 0)			// check if file size == 0
+		elseif($validate_username == true)					// check if username already exists in the database
+		{	
+			$error_type = 4;
+			return $this->get_error_message($error_type);
+		}
+		elseif($validate_email == true)						// check if email already exists in the database
 		{
-			echo 'not an image file';
+			$error_type = 3;
+			return $this->get_error_message($error_type);
+		}
+		elseif($parameters['file_size'] > 1024 * 1024 * 4 )  // check if file size exceeds 1mb
+		{
+			$error_type = 7;
+			return $this->get_error_message($error_type);
+		}
+		elseif($parameters['file_size'] == 0)			// check if there is a photo chosen, if no photo chosen just proceed to save since change photo is not necessary
+		{												// if there is a photo uploaded, check if it is a proper image file
+			Upload::save();
+			$query = DB::update('users')->set(array('user'=>$parameters['username'],'email'=>$parameters['email'],
+			'name'=>$parameters['name']))->where('id','=',Session::get('user_id'))->execute();	
 		}
 		elseif(getimagesize($parameters['file_tmp']) == 0)	// getimagesize returns a non zero value if file is an image
 		{
-			echo 'not an image file';
+			$error_type = 8;
+			return $this->get_error_message($error_type);
 		}
 		else
 		{
 			Upload::save();
-			$query = DB::update('accounts')->set(array('photo'=>$parameters['file_name']))->where('id','=',Session::get('user_id'))->execute();
-			echo 'account updated';
+			$query = DB::update('users')->set(array('photo'=>$parameters['file_name'],'user'=>$parameters['username'],
+			'email'=>$parameters['email'],'name'=>$parameters['name']))->where('id','=',Session::get('user_id'))->execute();	
 		}
 		
 	}
@@ -159,17 +171,17 @@ class Model_User extends Model
 	
 	public function validate_recover_password($username,$email)
 	{
-	
-		$query = DB::select()->from('accounts')->execute();
+		$query = DB::select()->from('users')->execute();
 	
 		foreach($query as $row)
 		{
-			if($row['username'] === $username AND $row['email'] === $email)
+			if($row['user'] === $username AND $row['email'] === $email)
 			{
 				return true;
 			}	
-			return false;
+			
 		}	
+		return false;
 	}
 	
 	/** 
@@ -178,18 +190,63 @@ class Model_User extends Model
 	 */
 	
 	public function validate_password($password,$retype,$id)
-	{
+	{	
 		if($password != $retype)
 		{
-			echo "password do not match";
+			$error_type = 2;
+			return $this->get_error_message($error_type);
+		}
+		elseif($password == '' OR $retype == '')
+		{
+			
+			$error_type = 6;
+			return $this->get_error_message($error_type);
+		}
+		elseif(strlen($password) < 8)
+		{
+			$error_type = 9;
+			return $this->get_error_message($error_type);
 		}
 		else
-		{	
+		{
 			$username =  $this->get_username($id);
 			$hash_password = $this->hash_password($username,$password);
-			DB::update('accounts')->set(array('password'=>$hash_password))->where('password','=',$id)->execute();
+			DB::update('users')->set(array('pass'=>$hash_password))->where('pass','=',$id)->execute();
+		}
+	}
+	
+	/** 
+	 *   function that validates password edit
+	 *	 parameters: old password, new password, retype password
+	 */
+	
+	public function validate_password_edit($password)
+	{
+		$validate_old_pass = $this->check_if_password_exists($password['old']);		// calls a function to check if old password match in database
+		
+		if($validate_old_pass == false)
+		{	
+			$error_type = 10;
+			return $this->get_error_message($error_type);
+		}
+		elseif($password['new'] != $password['retype'])
+		{
+			$error_type = 2;
+			return $this->get_error_message($error_type);
+		}
+		elseif(strlen($password['new']) < 8)
+		{
+			$error_type = 9;
+			return $this->get_error_message($error_type);
+		}
+		else
+		{
+			$id = Session::get('user_id');
+			$username = Session::get('username');
+			$hash_password = $this->hash_password($username,$password['new']);
 			
-			echo 'password changed';
+			DB::update('users')->set(array('pass'=>$hash_password))->where('id','=',$id)->execute();
+			
 		}
 	}
 
@@ -200,19 +257,17 @@ class Model_User extends Model
 
 	public function check_login_db($username,$password)
 	{
-	
 		$password = $this->hash_password($username,$password);
 		
-		$query =  DB::select()->from('accounts')->execute();
+		$query =  DB::select()->from('users')->execute();
 	
 		foreach($query as $row)
 		{
-			if($row['username'] === $username AND $row['password'] === $password)
+			if($row['user'] === $username AND $row['pass'] === $password)
 			{
 				return true;
 			}
-		}	
-			
+		}			
 		return false;
 	}
 	
@@ -224,11 +279,32 @@ class Model_User extends Model
 	
 	public function check_if_username_exists($username)
 	{
-		$query = DB::select('username')->from('accounts')->execute();
+		$query = DB::select('user')->from('users')->execute();
 		
 		foreach($query as $row)
 		{
-			if($row['username'] === $username)
+			if($row['user'] === $username)
+			{
+				return true;
+			}
+		}
+			
+		return false;
+	}
+	
+	/** 
+	 *   function checks if username exists in database for update profile
+	 *	 It checks if record exists except the original username
+	 *	 parameters: username
+	 */
+	
+	public function check_username_update($username)
+	{
+		$query = DB::select('user')->from('users')->where('user','!=',Session::get('username'))->execute();
+		
+		foreach($query as $row)
+		{
+			if($row['user'] === $username)
 			{
 				return true;
 			}
@@ -245,7 +321,7 @@ class Model_User extends Model
 	
 	public function check_if_email_exists($email)
 	{
-		$query = DB::select('email')->from('accounts')->execute();
+		$query = DB::select('email')->from('users')->execute();
 		
 		foreach($query as $row)
 		{
@@ -256,6 +332,186 @@ class Model_User extends Model
 		}
 		
 		return false;
+	}
+	
+	/** 
+	 *   this function checks whether email exists in the database for update profile
+	 *   It checks if record exists except the original email
+	 *	 parameters:
+	 */
+	
+	public function check_email_update($email)
+	{
+	
+		$query = DB::select('email')->from('users')->where('email','!=',Session::get('user_email'))->execute();
+		
+		foreach($query as $row)
+		{
+			if($row['email'] === $email)
+			{
+				return true;
+			}
+		}
+			
+		return false;
+	}
+	
+	/** 
+	 *   function that checks whether old password of user exists in the database
+	 *	 parameters: password
+	 */
+	
+	public function check_if_password_exists($password)
+	{
+		$id = Session::get('user_id');
+		$username = Session::get('username');
+		
+		$password = $this->hash_password($username,$password); // hashes password to compare in database
+	
+		$query = DB::select('pass')->from('users')->where('id','=',$id)->execute();
+		
+		foreach($query as $row)
+		{
+			if($row['pass'] === $password)
+			{
+				
+				return true;
+			}
+			
+			return false;
+		}	
+	}
+	
+	/** 
+	 *   get_server_name returns the server name for the machine used
+	 *	 parameters:
+	 */
+	
+	public function get_server_name()
+	{
+		$protocol = 'http';
+		
+		if (isset($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] == '443') 
+		{
+			$protocol = 'https';
+		}
+	
+		$host = $_SERVER['HTTP_HOST'];
+		$baseUrl = $protocol . '://' . $host;
+		
+		if (substr($baseUrl, -1)=='/') 
+		{
+			$baseUrl = substr($baseUrl, 0, strlen($baseUrl)-1);
+		}
+	
+		return $baseUrl;
+	}
+	
+	/** 
+	 *   get_username returns the username of the users 
+	 *	 parameters: $id
+	 */
+	
+	public function get_username($id)
+	{
+		$query = DB::select()->from('users')->where('pass','=',$id)->execute();
+		
+		foreach($query as $row)
+		{
+			return $row['user'];
+		}	
+	}
+	
+	/** 
+	 *   get_profile settings returns the profile status of the users
+	 *	 parameters: $id
+	 */
+	
+	public function get_profile_settings($id)
+	{
+		$query = DB::select()->from('users')->where('id','=',$id)->execute()->as_array();
+		return $query;
+	}
+	
+	/** 
+	 *   function that gets the stored hashed password of a users in the database
+	 *	 parameters: email
+	 */	
+	
+	public function get_hashed_password($email)
+	{
+		$query = db::select()->from('users')->where('email','=',$email)->execute();
+		
+		foreach($query as $row)
+		{
+			return $row['pass'];
+		}	
+	}
+	
+	/** 
+	 *   get_error_message retrieve all the error message that is to be displayed in the view
+	 *	 parameters: $error_type
+	 */	
+	
+	public function get_error_message($error_type)
+	{
+		switch ($error_type)
+		{
+			case 1:
+				return 'Invalid Username and Password';	
+			case 2:
+				return 'Password does not match';
+			case 3:
+				return 'Email already exists in the database';
+			case 4:
+				return 'Username already exists in the database';
+			case 5:
+				return 'Username and Email does not match in the database';
+			case 6:
+				return 'Fill in Missing Fields';
+			case 7:
+				return 'File Size exceeds 4mb';
+			case 8:
+				return 'Not an image file';
+			case 9:
+				return 'Password must have 8 characters in length';
+			case 10:
+				return 'old password does not match in our server';
+				
+		}
+	}
+	
+	/** 
+	 *   get_message retrieve all the message that is to be displayed in the view
+	 *	 parameters: $message_type
+	 */	
+	
+	public function get_message($message_type)
+	{
+		switch($message_type)
+		{
+			case 1:
+				return 'Registration Succesful';
+			case 2:
+				return 'You are now logged on';
+			case 3:
+				return 'Password Succefully Changed';
+			case 4:
+				return 'Account Updated';
+		}
+	}
+	
+
+	/** 
+	 *   function that hashes the password with username as salt
+	 *	 parameters: username,password
+	 */	
+	
+	public function hash_password($username,$password)
+	{
+		$salt = $username;
+		$password = hash('sha256',$password.$salt);
+		return $password;
 	}
 	
 	/** 
@@ -275,92 +531,28 @@ class Model_User extends Model
 		$email->subject('Recover Password');
 		$email->body('Click the link to this account to reset your password:'.$link);
 		$email->send();
+		
 		echo "email sent";
-	}
-	
-	
-	/** 
-	 *   get_server_name returns the server name for the machine used
-	 *	 parameters:
-	 */
-	
-	public function get_server_name()
-	{
-		$protocol = 'http';
-		if (isset($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] == '443') 
-		{
-		$protocol = 'https';
-		}
-	
-		$host = $_SERVER['HTTP_HOST'];
-		$baseUrl = $protocol . '://' . $host;
-		if (substr($baseUrl, -1)=='/') 
-		{
-			$baseUrl = substr($baseUrl, 0, strlen($baseUrl)-1);
-		}
-	
-	return $baseUrl;
-	}
-	
-	public function get_username($id)
-	{
-		$query = DB::select()->from('accounts')->where('password','=',$id)->execute();
-		
-		foreach($query as $row)
-		{
-			return $row['username'];
-		}	
-	}
-	
-	public function get_profile_settings($id)
-	{
-		$query = DB::select()->from('accounts')->where('id','=',$id)->execute()->as_array();
-		return $query;
-	}
-	
-	/** 
-	 *   function that gets the stored hashed password of a user in the database
-	 *	 parameters: email
-	 */	
-	
-	public function get_hashed_password($email)
-	{
-		$query = db::select()->from('accounts')->where('email','=',$email)->execute();
-		
-		foreach($query as $row)
-		{
-			return $row['password'];
-		}	
-	}
-	
-
-	/** 
-	 *   function that hashes the password with username as salt
-	 *	 parameters: username,password
-	 */	
-	
-	public function hash_password($username,$password)
-	{
-		$salt = $username;
-		$password = hash('sha256',$password.$salt);
-		return $password;
 	}
 	
 	/** 
 	 *   function that sets all the session parameters retrieved from the database where account is username parameter 
 	 *	 parameters: username
 	 */	
-		
+	 	
 	public function set_session_parameters($username)
 	{
-		$query = DB::select()->from('accounts')->where('username','=',$username)->execute();
+		$server_name = $this->get_server_name();
+		Session::instance()->set('server',$server_name);
+		
+		$query = DB::select()->from('users')->where('user','=',$username)->execute();
 		
 		Session::instance();
 		
 		foreach($query as $row)
 		{
 			Session::set('user_id',$row['id']);
-			Session::set('username',$row['username']);
+			Session::set('username',$row['user']);
 			Session::set('user_email',$row['email']);
 		}	
 	}

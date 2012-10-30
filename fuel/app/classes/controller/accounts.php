@@ -17,20 +17,21 @@ class Controller_Accounts extends Controller
 	 
 	public function action_login()
 	{
+				
 		$username =  input::post('txtusername');
 		$password = input::post('txtpassword');
 		
-		//$this->user->validate_login($username,$password);
 		$error_message = $this->user->validate_login($username,$password);
 		
 		if($error_message == null)
 		{
-			echo "You are logged in";
+			$message_type = 2;
+			$logged = $this->user->get_message($message_type);
+			echo $logged;			// dummy echo
 		}
 		else
 		{
-			return Response::forge(View::forge('startpage/login',array('message'=>$error_message)));
-			
+			return Response::forge(View::forge('startpage/login',array('message'=>$error_message)));	
 		}
 	}
 	
@@ -40,7 +41,8 @@ class Controller_Accounts extends Controller
 	
 	public function action_register()
 	{
-		return Response::forge(View::forge('startpage/register'));
+		$message = '';
+		return Response::forge(View::forge('startpage/register',array('message'=>$message)));
 	}
 	
 	/**
@@ -50,7 +52,7 @@ class Controller_Accounts extends Controller
 	
 	public function action_register_validate()
 	{
-	
+		
 		$parameters = array(
 				'username'=> input::post('username'),
 				'password'=> input::post('password'),
@@ -59,7 +61,19 @@ class Controller_Accounts extends Controller
 				'email'   => input::post('email')
 		);
 		
-		$this->user->validate_register($parameters);		
+		$error_message = $this->user->validate_register($parameters);	
+		
+		if($error_message == null)
+		{	
+			$message_type = 1;
+			$message = $this->user->get_message($message_type);
+			echo $message;			// dummy echo
+		}
+		else
+		{
+			return Response::forge(View::forge('startpage/register',array('message'=>$error_message)));	
+		}
+		
 	}
 	
 	/**
@@ -69,8 +83,9 @@ class Controller_Accounts extends Controller
 	
 	public function action_edit()
 	{
+		$error_message = '';
 		$profile = $this->user->get_profile_settings(Session::get('user_id'));		
-		return Response::forge(View::forge('startpage/edit',array('profile'=>$profile)));	
+		return Response::forge(View::forge('startpage/edit',array('profile'=>$profile,'message'=>$error_message)));	
 	}
 	
 	/**
@@ -79,7 +94,8 @@ class Controller_Accounts extends Controller
 	 */
 	public function action_forgot_password()
 	{
-		return Response::forge(View::forge('startpage/forgot_password'));
+		$message = '';
+		return Response::forge(View::forge('startpage/forgot_password',array('message'=>$message)));
 	}
 	
 	/**
@@ -97,7 +113,9 @@ class Controller_Accounts extends Controller
 		}
 		else
 		{
-			echo "no match";
+			$error_type = 5;
+			$error_message = $this->user->get_error_message($error_type);
+			return Response::forge(View::forge('startpage/forgot_password',array('message'=>$error_message)));
 		}
 	}
 	
@@ -113,12 +131,25 @@ class Controller_Accounts extends Controller
 				'file_name'=> $_FILES['picture']['name'],
 				'file_size'=> $_FILES['picture']['size'],
 				'file_tmp'  => $_FILES['picture']['tmp_name'],
-				'file_error'  => $_FILES['picture']['error'],
-				'name'	  => $_POST['txtname']		
+				'file_error' => $_FILES['picture']['error'],
+				'name'		=> $_POST['txtname'],
+				'username'	=> $_POST['txtuser'],
+				'email'		=> $_POST['txtemail']
 		);
 		
-		$this->user->validate_update($parameters);	
+		$error_message = $this->user->validate_update($parameters);	
 		
+		if($error_message == null)
+		{
+			$message_type = 4;
+			$message = $this->user->get_message($message_type);
+			echo $message; // dummy echo
+		}	
+		else
+		{
+			$profile = $this->user->get_profile_settings(Session::get('user_id'));		
+			return Response::forge(View::forge('startpage/edit',array('profile'=>$profile,'message'=>$error_message)));
+		}
 	}
 	
 	/**
@@ -129,7 +160,45 @@ class Controller_Accounts extends Controller
 	
 	public function action_change_password($id)
 	{
-		return Response::forge(View::forge('startpage/change_password',array('id'=>$id)));		
+		$message = '';
+		return Response::forge(View::forge('startpage/change_password',array('id'=>$id,'message'=>$message)));		
+	}
+	
+	/**
+	 * 
+	 * function that display password change for edit profile
+	 */
+	
+	
+	public function action_password_change()
+	{
+		$message = '';
+		return Response::forge(View::forge('startpage/password_change',array('message'=>$message)));
+	}
+	
+	/**
+	 * function that validates the fields for password edit
+	 *	parameters : old password, new password, retype password
+	 */
+	
+	public function action_password_validate()
+	{
+		$password = array(
+			'old' => input::post('old_passwd'),
+			'new' => input::post('new_passwd'),
+			'retype' => input::post('retype_passwd')
+		);
+		
+		$error_message = $this->user->validate_password_edit($password);
+		
+		if($error_message == null)
+		{
+			echo "Password Changed"; // dummy echo
+		}
+		else
+		{
+			return Response::forge(View::forge('startpage/password_change',array('message'=>$error_message)));
+		}
 	}
 	
 	/**
@@ -139,7 +208,18 @@ class Controller_Accounts extends Controller
 	
 	public function action_password_reset()
 	{
-		$this->user->validate_password(input::post('password'),input::post('retype'),input::post('id'));
+		$error_message = $this->user->validate_password(input::post('password'),input::post('retype'),input::post('id'));
+		
+		if($error_message == null)
+		{
+			$message_type = 3;
+			$message = $this->user->get_message($message_type);
+			echo $message;		// dummy echo
+		}
+		else
+		{
+			return Response::forge(View::forge('startpage/change_password',array('message'=>$error_message,'id'=>input::post('id'))));	
+		}
 	}
 
 	
