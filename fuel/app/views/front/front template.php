@@ -24,8 +24,12 @@
                              Fuel\Core\Html::anchor('login','Login'),                  
                              Fuel\Core\Html::anchor('#add-journal', 'Add', 
                                      array(
-                                         'data-toggle' => 'modal'   
-                                         ))
+                                         'data-toggle' => 'modal'
+                                         )),
+							Fuel\Core\Html::anchor('#profile',Session::get('username'),  // added by dino from line 29 to 32
+									array(
+										'data-toggle'=> 'dropdown'
+										))												// end of add							
                         );
                         $attr = array(
                             'id' => 'home-menu-item',
@@ -33,6 +37,22 @@
                         );
                         echo Fuel\Core\Html::ul($list,$attr);
                     ?>
+					
+					<!-- added by dino 10/31/12 -->
+					
+					<div style="position:relative; top:200;height:0px;left:700" class="dropdown" id='profile'>
+						<a class="dropdown-toggle" href="#" data-toggle="dropdown"> 
+							<strong class="caret">
+							</strong>
+						</a> 
+						<div class="dropdown-menu" style="padding: 15px; padding-bottom: 20px;">
+							<li><?php echo Fuel\Core\Html::anchor('accounts/edit', 'Account Settings'); ?> </li>
+							<li><?php echo Fuel\Core\Html::anchor('accounts/logout', 'Logout');  ?></li>
+						</div>
+					</div> 
+					
+					<!------- end of add ------------>
+				   				   
                 </section>
             </nav>
         </header>
@@ -52,6 +72,6 @@
                 </section>
                 <section class="modal-footer"></section>
             </article>
-        </footer>
+        </footer>	
     </body>
 </html>
