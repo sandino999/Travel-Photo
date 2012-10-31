@@ -6,7 +6,7 @@
 <body>
 	
 	<div style="position:relative; top:200;height:0px;left:700">
-	<font color='red'><?php echo $message; ?></font>
+	<font color='red'><?php echo nl2br($message); ?></font>
 		
 		<form action='password_validate' method='post'>
 			Old <input type='password' name='old_passwd'> <br/>

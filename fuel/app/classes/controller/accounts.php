@@ -25,9 +25,7 @@ class Controller_Accounts extends Controller
 		
 		if($error_message == null)
 		{
-			$message_type = 2;
-			$logged = $this->user->get_message($message_type);
-			echo $logged;			// dummy echo
+			return Response::redirect('front/home');
 		}
 		else
 		{
@@ -221,6 +219,16 @@ class Controller_Accounts extends Controller
 			return Response::forge(View::forge('startpage/change_password',array('message'=>$error_message,'id'=>input::post('id'))));	
 		}
 	}
+	
+	/*
+	*	function for logout. Destroys all session
+	*/
+	
+	public function action_logout()
+	{
+		Session::destroy();
+		Response::redirect('login');
+	}
 
 	
 	/**
@@ -234,4 +242,39 @@ class Controller_Accounts extends Controller
 	{
 		return Response::forge(ViewModel::forge('welcome/404'), 404);
 	}
+	
+	
+	
+	
+	/* 
+	*
+	* temporary function for follow system
+	*/
+	
+	public function action_follow()
+	{
+		return Response::forge(View::forge('dummy_view/follow'));
+	}
+	
+	public function action_follow_db()
+	{
+		if(isset($_POST['follow_username']))
+		{
+		
+			$username = $_POST['follow_username'];
+			$follow_id = $_POST['follow_user_id'];
+			
+			$this->user->follow($username,$follow_id);
+		}
+		elseif(isset($_POST['unfollow_username']))
+		{	
+	
+			$username = $_POST['unfollow_username'];
+			$follow_id = $_POST['unfollow_user_id'];
+					
+			$this->user->unfollow($username,$follow_id);
+		}
+	}
+	
+	
 }
