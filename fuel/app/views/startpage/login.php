@@ -6,7 +6,7 @@
 <body>
 		<div style="position:relative; top:200;height:0px;left:700">
 		
-		<font color='red'><?php echo $message; ?></font>
+		<font color='red'><?php echo nl2br($message); ?></font>
 
 			<?php echo Form::open('accounts/login');	
 			echo 'Username '.Form::input('txtusername','',array('id'=>'username')); 

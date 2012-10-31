@@ -7,7 +7,7 @@
 <body>
 	
 	<div style="position:relative; top:200;height:0px;left:700">
-		<font color='red'><?php echo $message; ?></font>
+		<font color='red'><?php echo nl2br($message); ?></font>
 		<font color='red'><span id='return_error'></span></font>
 	
 		<form action='register_validate' method='post' id='register'>

@@ -20,12 +20,12 @@ class Model_User extends Model
 		$val->add_field('username','username','required');
 		$val->add_field('password','password','required');
 		
-		if ($val->run( array('username'=>$username,'password'=>$password) ))
+		if ($val->run(array('username'=>$username,'password'=>$password) ))
 		{
 			$check = $this->check_login_db($val->validated('username'),$val->validated('password')); // calls function check_login_db to validate if validated username and password exists in database
 			
 			if($check == true)  
-			{
+			{	
 				$this->set_session_parameters($username);	
 			}
 			else
@@ -35,8 +35,8 @@ class Model_User extends Model
 			}
 		}
 		else
-		{		
-			return $val->error('username').' '.$val->error('password');		
+		{
+			return  $val->error('username')."\n".$val->error('password');		
 		}
 	}
 	
@@ -99,8 +99,8 @@ class Model_User extends Model
 		}
 		else
 		{	
-			return 	$val->error('username').' '.$val->error('password').' '
-					.$val->error('email').' '.$val->error('retype').' '.$val->error('name');
+			return 	$val->error('username')."\n".$val->error('password')."\n"
+					.$val->error('email')."\n".$val->error('retype')."\n".$val->error('name');
 		}	
 		
 	}
@@ -160,8 +160,7 @@ class Model_User extends Model
 			Upload::save();
 			$query = DB::update('users')->set(array('photo'=>$parameters['file_name'],'user'=>$parameters['username'],
 			'email'=>$parameters['email'],'name'=>$parameters['name']))->where('id','=',Session::get('user_id'))->execute();	
-		}
-		
+		}	
 	}
 	
 	/** 
@@ -198,7 +197,6 @@ class Model_User extends Model
 		}
 		elseif($password == '' OR $retype == '')
 		{
-			
 			$error_type = 6;
 			return $this->get_error_message($error_type);
 		}
@@ -245,8 +243,7 @@ class Model_User extends Model
 			$username = Session::get('username');
 			$hash_password = $this->hash_password($username,$password['new']);
 			
-			DB::update('users')->set(array('pass'=>$hash_password))->where('id','=',$id)->execute();
-			
+			DB::update('users')->set(array('pass'=>$hash_password))->where('id','=',$id)->execute();	
 		}
 	}
 
@@ -351,8 +348,7 @@ class Model_User extends Model
 			{
 				return true;
 			}
-		}
-			
+		}	
 		return false;
 	}
 	
@@ -557,6 +553,24 @@ class Model_User extends Model
 		}	
 	}
 	
+	/*
+	*	dummy model for follow
+	*/
 	
+	public function follow($username,$follow_id)
+	{
+		$query = DB::insert('follows');
+		$query->set(array(
+					'username'=>$username,
+					'follow'=>$follow_id
+					)
+		);
+		$query->execute();
+	}
+	
+	public function unfollow($username,$follow_id)
+	{
+		DB::delete('follows')->where(array('username'=>$username,'follow'=>$follow_id))->execute();
+	}
 
 }
