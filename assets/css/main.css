@@ -36,11 +36,11 @@ html label {
   text-align: right;
 }
 .journal-item {
-  width: 15em;
-  height: 20em;
   background-color: grey;
   float: left;
+  width: 15em;
   margin: 0.3em;
+  padding: 0.2em 0.3em;
 }
 .journal-item footer ul li {
   list-style-type: none;

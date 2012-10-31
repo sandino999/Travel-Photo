@@ -42,8 +42,14 @@ class Model_Journal extends \Model_Crud
             $q->save();
         }
         
-        public static function journal_detail() {
-            $q = Model_Journal::find_by_pk(\Fuel\Core\Input::post('id'));
+        public static function journal_detail($id = NULL) {
+            if ($id == NULL) {
+                $value =  \Fuel\Core\Input::post('id');
+            } else {
+                $value = $id;
+            }
+            
+            $q = Model_Journal::find_by_pk($value);
             if ($q != NULL) {
                 return $q;
             }

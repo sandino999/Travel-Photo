@@ -11,7 +11,7 @@ class Create_users
 			'user' => array('constraint' => 25, 'type' => 'varchar'),
 			'pass' => array('constraint' => 255, 'type' => 'varchar'),
 			'name' => array('constraint' => 50, 'type' => 'varchar'),
-			'photo' => array('constraint' => 25, 'type' => 'varchar'),
+			'photo' => array('constraint' => 50, 'type' => 'varchar'),
 			'email' => array('constraint' => 30, 'type' => 'varchar'),
 
 		), array('id'));
