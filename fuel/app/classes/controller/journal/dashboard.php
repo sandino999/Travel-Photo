@@ -14,8 +14,16 @@ class Controller_journal_dashboard extends \Fuel\Core\Controller_Template {
     public $template = 'journal/dashboard';
     
     public function action_index() {
-        $this->template->title = 'Dashboard';
-        $this->template->journal_items = Model_Journal::load_journals();
+        $this->template->items = Fuel\Core\Request::forge('journal/jlist/journal_list')
+                ->execute()->response()->body();
+    }
+    
+    public function action_photo() {
+        $id = $this->param('id');
+        $this->template->items = Fuel\Core\Request::forge("journal/jlist/journal_photos/".$id)
+                ->execute()->response()->body();
+        $this->template->journal = Model_Journal::journal_detail($id);
+        $this->template->is_photo = true;
     }
 }
 

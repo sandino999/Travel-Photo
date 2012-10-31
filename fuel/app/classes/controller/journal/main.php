@@ -24,6 +24,8 @@ class Controller_journal_main  extends Controller {
    }
    
    public function action_delete($id) {
+       $files = Model_Photo::get_photo($id, false);
+       $this->delete_journal_photos($files);
        Model_Journal::delete_journal($id);
        Fuel\Core\Response::redirect('db');
    }
@@ -35,10 +37,20 @@ class Controller_journal_main  extends Controller {
    }
    
    public function action_deletephoto($id,$jid){
+       $this->delete_single_photo($id, $jid);
+       Fuel\Core\Response::redirect('photo/'.$jid);
+   }
+   
+   private function delete_single_photo($id,$jid){
        $file = Model_Photo::photo_detail($id);
        Model_Photo::delete_photo($id);
        myupload::delete_images($file->file, $file->date);
-       Fuel\Core\Response::redirect('photo/'.$jid);
+   }
+   
+   private function delete_journal_photos($files) {
+       foreach($files as $file) {
+           $this->delete_single_photo($file->id, $file->date);
+       }
    }
 }
 

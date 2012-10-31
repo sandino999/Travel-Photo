@@ -21,13 +21,12 @@ class myupload {
     }
     
     public static function delete_images($file_name,$date) {
-        $path = DOCROOT . 'assets/upload/' . $date .'/';
-        
-        \Fuel\Core\File::delete($path . self::$small . $file_name);
-        \Fuel\Core\File::delete($path . self::$medium . $file_name);
-        \Fuel\Core\File::delete($path . self::$large . $file_name);
-        \Fuel\Core\File::delete($path . self::$thumb . $file_name);
-        \Fuel\Core\File::delete($path . $file_name);
+            $path = DOCROOT . 'assets/upload/' . $date .'/';
+            \Fuel\Core\File::delete($path . self::$small . $file_name);
+            \Fuel\Core\File::delete($path . self::$medium . $file_name);
+            \Fuel\Core\File::delete($path . self::$large . $file_name);
+            \Fuel\Core\File::delete($path . self::$thumb . $file_name);
+            \Fuel\Core\File::delete($path . $file_name);
     }
     
     public static function upload_image() {

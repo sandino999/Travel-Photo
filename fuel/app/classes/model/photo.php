@@ -17,8 +17,12 @@ class Model_Photo extends \Model_Crud
             }
         }
         
-        public static function get_photo($id) {
-            $q = self::find_by('journalid',$id,'=',20);
+        public static function get_photo($id,$limit = TRUE) {
+            if ($limit == TRUE) {
+                $q = self::find_by('journalid',$id,'=',20);
+            } else {
+                $q = self::find_by('journalid',$id,'=');
+            }
             if($q != null){
                 return $q;
             }

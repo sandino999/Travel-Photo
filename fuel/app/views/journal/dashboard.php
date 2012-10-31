@@ -1,7 +1,7 @@
 <?php echo Fuel\Core\Html::doctype('html5') ?>
 <html>
     <head>
-        <title><?php print $title ?></title>
+        <title>Dashboard</title>
         <?php 
             echo \Fuel\Core\Asset::css('main.css');
             echo \Fuel\Core\Asset::css('bootstrap.min.css');
@@ -18,7 +18,7 @@
                     <input type="text"/>
                 </section>
                 <section class="child-table default-padding">
-                    <h1>Dashboard</h1>
+                    <h1><?php print Fuel\Core\Html::anchor('db', 'Dashboard') ?></h1>
                 </section>
                 <section class="child-table default-padding">
                     <?php 
@@ -43,38 +43,25 @@
             <article class="base-table-content" id="journal-content">
                 <section class="child-table">
                     <article class="base-table-full">
-                        <header><h2>Listed Journals</h2></header>
+                        <header><h2><?php if(isset($journal)):print $journal->name; else: print 'Listed Journals'; endif; ?></h2></header>
                         <section class="child-table-full">
-                            <?php if (isset($journal_items)): foreach ($journal_items as $item): ?>
-                                
-                                <article class="journal-item">
-                                    <header><h3 class="default-padding">
-                                        <?php print \Fuel\Core\Html::anchor('/photo/'.$item->id,$item->name); ?>
-                                        </h3></header>
-                                    <footer>
-                                        <ul>
-                                            <li><?php print Fuel\Core\Html::anchor('#edit-journal', 'Edit',
-                                                    array(
-                                                        'data-toggle' => 'modal',
-                                                        'data-id' => $item->id,
-                                                        'class' => 'journal-detail'
-                                                    
-                                                    )); ?></li>
-                                            <li>Comment</li>
-                                            <li>Like</li>
-                                            <li>
-                                                <?php print Fuel\Core\Html::anchor('/journal/main/delete/'.$item->id, 'Delete');?>
-                                            </li>
-                                        </ul>
-                                    </footer>
-                                </article>
-                            
-                            <?php endforeach;endif;?>
+                            <?php print $items;?>
                         </section>
                     </article>
                 </section>
                 <section class="child-table">
-                    <p>testing</p>
+                    <?php
+                    if (isset($is_photo)):
+                        print \Fuel\Core\Form::open(array(
+                            'action'=>'/journal/main/addphoto/',
+                            'method'=>'post',
+                            'enctype'=>'multipart/form-data'));
+                        print \Fuel\Core\Form::file('photos[]',array('class'=>'btn btn-primary','multiple' =>''));
+                        print \Fuel\Core\Form::hidden('journal-id', $journal->id);
+                        print \Fuel\Core\Form::submit('Submit');
+                        print \Fuel\Core\Form::close();
+                    endif;
+                    ?>
                 </section>
             </article>
             
