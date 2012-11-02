@@ -47,6 +47,12 @@ class Model_User extends Model
 	
 	public function validate_register($parameters)
 	{
+                /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                 * 
+                 * Why Redeclare variables if you can use Parameters?
+                 * 
+                 *!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                 */
 		$username = $parameters['username'];
 		$password = $parameters['password'];
 		$email = $parameters['email'];
@@ -61,11 +67,30 @@ class Model_User extends Model
 		$val->add_field('retype','retype password','required|min_length[8]');
 		$val->add_field('name','name','required|min_length[2]');
 		
+                /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                 * 
+                 * If the $_POST keys are the same as the one declared in the validation
+                 * There's no need to declare them again in the $val->run()
+                 * 
+                 * Suggestion =  We can just AJAX the validation instead doing two types of validation in JS.
+                 * 
+                 *!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                 */
+                
 		if ($val->run(array('username'=>$username,'password'=>$password,'email'=>$email,'retype'=>$retype,'name'=>$name)))
 		{
 			$validate_username = $this->check_if_username_exists($val->validated('username'));	// calls function to check if username exists in the database
 			$validate_email = $this->check_if_email_exists($val->validated('email'));			// calls function to check if email exists in the database
 			
+                        
+                        /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                         * 
+                         * Use match_field instead of this if statement. 
+                         * 
+                         * http://docs.fuelphp.com/classes/validation/validation.html
+                         * 
+                         *!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                         */
 			if($val->validated('password') != $val->validated('retype'))	// checks if validated password == validated retype password
 			{
 				$error_type = 2;
@@ -83,8 +108,14 @@ class Model_User extends Model
 			}
 			else
 			{
+                            /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                             * 
+                             * You can still use this for updating. Create a separte functio for this.
+                             * Pass an array on that function for setting the fields.
+                             * 
+                             *!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                             */
 				$password_sha = $this->hash_password($val->validated('username'),$val->validated('password'));  // calls function hash_password to hash the password with username as salt
-				
 				$query = DB::insert('users');	
 				$query->set(array(
 						'user'=> $parameters['username'],
@@ -115,7 +146,20 @@ class Model_User extends Model
 		echo Session::instance()->get('email');
 		$validate_username = $this->check_username_update($parameters['username']);	// calls function to check if username exists
 		$validate_email = $this->check_email_update($parameters['email']);		// calls function to check if email exists
-			
+                
+                /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                 *
+                 * Integarte Upload file with class upload. 
+                 * 
+                 *!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                 */
+                
+                /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                 * 
+                 * No Validate class?
+                 * 
+                 *!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                 */
 		$config = array(
 		'path' => DOCROOT.'assets/img/profile_picture',		
 		'auto_rename' => false,		
@@ -170,6 +214,13 @@ class Model_User extends Model
 	
 	public function validate_recover_password($username,$email)
 	{
+            /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+             *
+             * Don't QUERY everything. Query what you need, don't loop on the data. 
+             * Waste of resources. 
+             * 
+             *!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+             */
 		$query = DB::select()->from('users')->execute();
 	
 		foreach($query as $row)
@@ -254,6 +305,13 @@ class Model_User extends Model
 
 	public function check_login_db($username,$password)
 	{
+            /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+             *
+             * Don't QUERY everything. Query what you need, don't loop on the data. 
+             * Waste of resources. 
+             * 
+             *!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+             */
 		$password = $this->hash_password($username,$password);
 		
 		$query =  DB::select()->from('users')->execute();
@@ -276,6 +334,13 @@ class Model_User extends Model
 	
 	public function check_if_username_exists($username)
 	{
+            /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+             *
+             * Don't QUERY everything. Query what you need, don't loop on the data. 
+             * Waste of resources. 
+             * 
+             *!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+             */
 		$query = DB::select('user')->from('users')->execute();
 		
 		foreach($query as $row)
@@ -297,6 +362,12 @@ class Model_User extends Model
 	
 	public function check_username_update($username)
 	{
+            /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+             *
+             * You can do look for query on a specific value. Please do it on others.
+             * 
+             *!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+             */
 		$query = DB::select('user')->from('users')->where('user','!=',Session::get('username'))->execute();
 		
 		foreach($query as $row)
@@ -318,6 +389,13 @@ class Model_User extends Model
 	
 	public function check_if_email_exists($email)
 	{
+            /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+             *
+             * Don't QUERY everything. Query what you need, don't loop on the data. 
+             * Waste of resources. 
+             * 
+             *!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+             */
 		$query = DB::select('email')->from('users')->execute();
 		
 		foreach($query as $row)
@@ -359,6 +437,12 @@ class Model_User extends Model
 	
 	public function check_if_password_exists($password)
 	{
+            /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+             *
+             * Just query the password. No need to look for the ID then look for the password.
+             * 
+             *!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+             */
 		$id = Session::get('user_id');
 		$username = Session::get('username');
 		
@@ -385,6 +469,12 @@ class Model_User extends Model
 	
 	public function get_server_name()
 	{
+            /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+             *
+             * Why?
+             * 
+             *!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+             */
 		$protocol = 'http';
 		
 		if (isset($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] == '443') 

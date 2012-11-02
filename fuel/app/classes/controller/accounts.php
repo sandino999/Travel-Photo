@@ -5,7 +5,7 @@
 class Controller_Accounts extends Controller
 {
 	
-	public function __construct()
+	public function before()
 	{
 		$this->user = new Model_user;
 	}
@@ -50,7 +50,13 @@ class Controller_Accounts extends Controller
 	
 	public function action_register_validate()
 	{
-		
+		/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                 * 
+                 * No need to assign POST DATA to array. I will be carried on the Model. 
+                 * 
+                 * 
+                 * !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                 */
 		$parameters = array(
 				'username'=> input::post('username'),
 				'password'=> input::post('password'),

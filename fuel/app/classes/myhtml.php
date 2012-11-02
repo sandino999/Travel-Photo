@@ -11,8 +11,6 @@
  * @author Aldrich Allen Barcenas
  */
     class MyHtml extends Fuel\Core\Html {
-        private $table = null;
-
         public static function print_r ($array) {
             print '<pre>';
             print_r($array);
