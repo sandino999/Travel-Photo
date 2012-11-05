@@ -66,7 +66,7 @@
                 <section class="modal-body">
                     <?php
                         $form_login = new myform('form-item');
-                        $form_login->open_form('/travel-photo/accounts/login');
+                        $form_login->open_form('/accounts/login');
                         $form_login->input('username', 'text', 'Username');
                         $form_login->input('password', 'password', 'Password');
                         $form_login->submit('Login',Fuel\Core\Html::anchor('#forgot-module','Forgot Password',$arg));

@@ -50,19 +50,15 @@ class Model_User extends Model
                 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                  * 
                  * Why Redeclare variables if you can use Parameters?
-                 * 
+                 * note::edited 11/4/12
                  *!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                  */
-		$username = $parameters['username'];
-		$password = $parameters['password'];
-		$email = $parameters['email'];
-		$retype = $parameters['retype'];
-		$name = $parameters['name'];
+	
 		
 		$val = Validation::forge();			// starts validation using fuelphp validation class
 		
 		$val->add_field('username','username','required|min_length[2]');
-		$val->add_field('password','password','required|min_length[8]');
+		$val->add_field('password','password','required|min_length[8]')->add_rule('match_field','retype');
 		$val->add_field('email','email','required|min_length[2]|valid_email');
 		$val->add_field('retype','retype password','required|min_length[8]');
 		$val->add_field('name','name','required|min_length[2]');
@@ -73,30 +69,27 @@ class Model_User extends Model
                  * There's no need to declare them again in the $val->run()
                  * 
                  * Suggestion =  We can just AJAX the validation instead doing two types of validation in JS.
-                 * 
+                 * note: edited 11/4/12
                  *!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                  */
                 
-		if ($val->run(array('username'=>$username,'password'=>$password,'email'=>$email,'retype'=>$retype,'name'=>$name)))
+		if ($val->run())
 		{
+		 	
 			$validate_username = $this->check_if_username_exists($val->validated('username'));	// calls function to check if username exists in the database
 			$validate_email = $this->check_if_email_exists($val->validated('email'));			// calls function to check if email exists in the database
 			
-                        
+                       
                         /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                          * 
                          * Use match_field instead of this if statement. 
                          * 
                          * http://docs.fuelphp.com/classes/validation/validation.html
-                         * 
+                         * note: added match field for if password != retype 11/4/12
                          *!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                          */
-			if($val->validated('password') != $val->validated('retype'))	// checks if validated password == validated retype password
-			{
-				$error_type = 2;
-				return $this->get_error_message($error_type);
-			}
-			elseif($validate_email == true)			// checks if email exists in  the database
+									 
+			if($validate_email == true)			// checks if email exists in  the database
 			{
 				$error_type = 3;
 				return $this->get_error_message($error_type);
@@ -108,25 +101,18 @@ class Model_User extends Model
 			}
 			else
 			{
+		
                             /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                              * 
                              * You can still use this for updating. Create a separte functio for this.
                              * Pass an array on that function for setting the fields.
-                             * 
+                             * note: edited 11/4/12
                              *!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                              */
-				$password_sha = $this->hash_password($val->validated('username'),$val->validated('password'));  // calls function hash_password to hash the password with username as salt
-				$query = DB::insert('users');	
-				$query->set(array(
-						'user'=> $parameters['username'],
-						'pass'=> $password_sha,
-						'name'	  => $parameters['name'],
-						'email'	  => $parameters['email'],
-						'photo'   => 'default.gif'
-						)
-				);
-				$query->execute();
-			}	
+				$this->add_register_to_db($val->validated('username'),$val->validated('password'),$val->validated('name'),$val->validated('email'));	
+			}
+		
+			
 		}
 		else
 		{	
@@ -150,14 +136,16 @@ class Model_User extends Model
                 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                  *
                  * Integarte Upload file with class upload. 
-                 * 
+				 * note: I used fuelphp upload class starts on line 167
                  *!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                  */
                 
                 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                  * 
                  * No Validate class?
-                 * 
+                 * note: do you mean validation class for uploaded file?
+				 * I tried that but they only check for extension of file uploaded so I decided not to use it
+				 *
                  *!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                  */
 		$config = array(
@@ -218,20 +206,20 @@ class Model_User extends Model
              *
              * Don't QUERY everything. Query what you need, don't loop on the data. 
              * Waste of resources. 
-             * 
+             * note: edited 11/4/12
              *!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
              */
-		$query = DB::select()->from('users')->execute();
-	
-		foreach($query as $row)
+		
+		$query = DB::select('user')->from('users')->where(array('user'=>$username,'email'=>$email))->execute();
+		
+		if(count($query) > 0)
 		{
-			if($row['user'] === $username AND $row['email'] === $email)
-			{
-				return true;
-			}	
-			
-		}	
-		return false;
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 	
 	/** 
@@ -309,21 +297,21 @@ class Model_User extends Model
              *
              * Don't QUERY everything. Query what you need, don't loop on the data. 
              * Waste of resources. 
-             * 
+             * note: edited 11/4/12
              *!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
              */
 		$password = $this->hash_password($username,$password);
 		
-		$query =  DB::select()->from('users')->execute();
-	
-		foreach($query as $row)
+		$query =  DB::select()->from('users')->where(array('user'=>$username,'pass'=>$password))->execute();
+		
+		if(count($query) > 0)
 		{
-			if($row['user'] === $username AND $row['pass'] === $password)
-			{
-				return true;
-			}
-		}			
-		return false;
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 	
 	
@@ -338,20 +326,40 @@ class Model_User extends Model
              *
              * Don't QUERY everything. Query what you need, don't loop on the data. 
              * Waste of resources. 
-             * 
+             * note: edited 11/4/12
              *!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
              */
-		$query = DB::select('user')->from('users')->execute();
+			 
+		$query = DB::select('user')->from('users')->where('user','=',$username)->execute();
 		
-		foreach($query as $row)
+		if(count($query) > 0)
 		{
-			if($row['user'] === $username)
-			{
-				return true;
-			}
+			return true;
 		}
-			
-		return false;
+		else
+		{	
+			return false;
+		}
+	}
+	
+	/** 
+	 * function that adds the registration fields to db after validation
+	 *	 parameters: username,password,name,email
+	 */
+	
+	public function add_register_to_db($username,$password,$name,$email)
+	{
+		$password_sha = $this->hash_password($username,$password);  // calls function hash_password to hash the password with username as salt
+				$query = DB::insert('users');	
+				$query->set(array(
+						'user'=> $username,
+						'pass'=> $password_sha,
+						'name'	  => $name,
+						'email'	  => $email,
+						'photo'   => 'default.gif'
+						)
+				);
+		$query->execute();
 	}
 	
 	/** 
@@ -368,17 +376,16 @@ class Model_User extends Model
              * 
              *!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
              */
-		$query = DB::select('user')->from('users')->where('user','!=',Session::get('username'))->execute();
+		$query = DB::select('user')->from('users')->where('user','!=',Session::get('username'))->where('user','=',$username)->execute();
 		
-		foreach($query as $row)
+		if(count($query) > 0)
 		{
-			if($row['user'] === $username)
-			{
-				return true;
-			}
+			return true;
 		}
-			
-		return false;
+		else
+		{
+			return false;
+		}
 	}
 	
 	
@@ -393,20 +400,20 @@ class Model_User extends Model
              *
              * Don't QUERY everything. Query what you need, don't loop on the data. 
              * Waste of resources. 
-             * 
+             * note : edited 11/4/12
              *!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
              */
-		$query = DB::select('email')->from('users')->execute();
 		
-		foreach($query as $row)
+		$query = DB::select('email')->from('users')->where('email','=',$email)->execute();
+		
+		if(count($query)>0)
 		{
-			if($row['email'] === $email )
-			{
-				return true;
-			}
+			return true;
 		}
-		
-		return false;
+		else
+		{
+			return false;
+		}
 	}
 	
 	/** 
@@ -417,17 +424,18 @@ class Model_User extends Model
 	
 	public function check_email_update($email)
 	{
-	
-		$query = DB::select('email')->from('users')->where('email','!=',Session::get('user_email'))->execute();
 		
-		foreach($query as $row)
+		$query = DB::select('email')->from('users')->where('email','!=',Session::get('user_email'))->where('email','=',$email)->execute();
+			
+		if(count($query) > 0)
 		{
-			if($row['email'] === $email)
-			{
-				return true;
-			}
-		}	
-		return false;
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+		
 	}
 	
 	/** 
@@ -440,26 +448,24 @@ class Model_User extends Model
             /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
              *
              * Just query the password. No need to look for the ID then look for the password.
-             * 
+             *  note: edited 11/4/12
              *!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
              */
-		$id = Session::get('user_id');
 		$username = Session::get('username');
 		
 		$password = $this->hash_password($username,$password); // hashes password to compare in database
-	
-		$query = DB::select('pass')->from('users')->where('id','=',$id)->execute();
 		
-		foreach($query as $row)
-		{
-			if($row['pass'] === $password)
+		
+		$query = DB::select('pass')->from('users')->where('pass','=',$password)->execute();
+		
+			if(COUNT($query)>0)
 			{
-				
 				return true;
 			}
-			
-			return false;
-		}	
+			else
+			{
+				return false;
+			}
 	}
 	
 	/** 
@@ -472,7 +478,8 @@ class Model_User extends Model
             /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
              *
              * Why?
-             * 
+             * note: I used this for the link in email in the forgot password 
+			 *	
              *!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
              */
 		$protocol = 'http';
