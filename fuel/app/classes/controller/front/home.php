@@ -16,5 +16,7 @@ class Controller_front_home extends Fuel\Core\Controller_Template {
     
     public function action_index() {
         $this->template->title = 'Demo Site';
+		$this->template->message = '';
     }
+	
 }

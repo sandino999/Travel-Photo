@@ -3,10 +3,15 @@
     <head>
         <title><?php echo $title ?></title>
         <?php 
+			
             echo \Fuel\Core\Asset::css('main.css');
             echo \Fuel\Core\Asset::css('bootstrap.min.css');
             echo \Fuel\Core\Asset::js('jquery-1.8.2.js');
             echo \Fuel\Core\Asset::js('bootstrap.min.js');
+			echo \Fuel\Core\Asset::js('login.js');
+			echo \Fuel\Core\Asset::js('register.js');
+			echo \Fuel\Core\Asset::js('forgot-password.js');
+			
         ?>
     </head>
     <body>
@@ -18,31 +23,44 @@
                 <section class="child-table default-padding">
                     <h1>Travel Blog</h1>
                 </section>
-                <section class="child-table default-padding">
-                    <?php $arg = array('data-toggle'=>'modal'); ?>
-                    <div class="nav-items">
+                <section class="child-table default-padding">  
+					<?php $arg = array('data-toggle'=>'modal'); ?>
+        
+		<?php 
+			
+			if(Session::get('user_id') == '' )
+			{
+		?>
+					<div class="nav-items" id='login'>
                         <?php print Fuel\Core\Html::anchor('#login-module', 'Sign-In',$arg) ?>
                     </div>
                     
-                    <div class="nav-items">
+                    <div class="nav-items" id='sign-up'>
                         <?php print Fuel\Core\Html::anchor('#register-module', 'Sign-Up',$arg) ?>
                     </div>
-                    
-                    <!--
+		<?php
+			}
+			else
+			{
+		?>
+		              
                     <div class="dropdown nav-items">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Login</a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Settings</a>
                         <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
                             <li><a tabindex="-1" href="#">Action</a></li>
                             <li><a tabindex="-1" href="#">Another action</a></li>
                             <li><a tabindex="-1" href="#">Something else here</a></li>
                             <li class="divider"></li>
-                            <li><a tabindex="-1" href="#">Separated link</a></li>
+                            <li> <?php echo Fuel\Core\Html::anchor('accounts/logout', 'Logout')  ?></li>
                         </ul>
                     </div>
-                    -->
+                    
                 </section>
             </nav>
         </header>
+		<?php
+			}
+		?>
         <footer>
             <!-- Modules -->
             
@@ -61,6 +79,7 @@
                 <section class="modal-footer"></section>
             </article>
             
+		
             <article class="modal hide fade" id="login-module">
                 <header class="modal-header"><h2>Sign-In</h2></header>
                 <section class="modal-body">
@@ -71,9 +90,12 @@
                         $form_login->input('password', 'password', 'Password');
                         $form_login->submit('Login',Fuel\Core\Html::anchor('#forgot-module','Forgot Password',$arg));
                         $form_login->close_form();
-                    ?>
+						
+						?>
                 </section>
-                <footer class="modal-footer"></footer>
+                <footer class="modal-footer">
+					<font color='red'><span id='error_message'></font>
+				</footer>
             </article>
             
             <article class="modal hide fade" id="register-module">
@@ -81,16 +103,19 @@
                 <section class="modal-body">
                     <?php 
                         $form_reg = new myform('form-item');
-                        $form_reg->open_form('');
-                        $form_reg->input('username', 'text', 'Username');
-                        $form_reg->input('password', 'password', 'Password');
+                        $form_reg->open_form('/accounts/register');
+                        $form_reg->input('reg_username', 'text', 'Username');
+                        $form_reg->input('reg_password', 'password', 'Password');
                         $form_reg->input('password2','password', 'Re-type Password');
+						$form_reg->input('name','text','Name');
                         $form_reg->input('email','text','Email');
                         $form_reg->submit('submit');
                         $form_reg->close_form();
                     ?>
                 </section>
-                <footer class="modal-footer"></footer>
+                <footer class="modal-footer">
+					<font color='red'><span id='reg_error_message'></font>
+				</footer>
             </article>
             
             <article class="modal hide fade" id="forgot-module">
@@ -105,9 +130,10 @@
                         $form_login->close_form();
                     ?>
                 </section>
-                <footer class="modal-footer"></footer>
-            </article>
-            
-        </footer>	
+                <footer class="modal-footer">
+					<font color='red'><span id='forgot_error_message'></font>
+				</footer>
+            </article>     
+        </footer>		
     </body>
 </html>

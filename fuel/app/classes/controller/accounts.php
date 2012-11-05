@@ -5,7 +5,7 @@
 class Controller_Accounts extends Controller
 {
 	
-	public function before()
+	public function __construct()
 	{
 		$this->user = new Model_user;
 	}
@@ -18,18 +18,19 @@ class Controller_Accounts extends Controller
 	public function action_login()
 	{
 				
-		$username =  input::post('txtusername');
-		$password = input::post('txtpassword');
+		$username =  input::post('username');
+		$password = input::post('password');
 		
 		$error_message = $this->user->validate_login($username,$password);
 		
 		if($error_message == null)
 		{
-			return Response::redirect('front/home');
+			echo 'logged';
+			//return Response::redirect('front/home');
 		}
 		else
 		{
-			return Response::forge(View::forge('startpage/login',array('message'=>$error_message)));	
+			echo nl2br($error_message);	
 		}
 	}
 	
@@ -50,19 +51,13 @@ class Controller_Accounts extends Controller
 	
 	public function action_register_validate()
 	{
-		/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                 * 
-                 * No need to assign POST DATA to array. I will be carried on the Model. 
-                 * 
-                 * 
-                 * !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                 */
+		
 		$parameters = array(
-				'username'=> input::post('username'),
-				'password'=> input::post('password'),
-				'retype'  => input::post('retype'),
-				'name'	  => input::post('name'),
-				'email'   => input::post('email')
+				'username'=> input::post('reg_username'),
+				'password'=> input::post('reg_password'),
+				'retype'  => input::post('reg_password2'),
+				'name'	  => input::post('reg_name'),
+				'email'   => input::post('reg_email')
 		);
 		
 		$error_message = $this->user->validate_register($parameters);	
@@ -75,7 +70,8 @@ class Controller_Accounts extends Controller
 		}
 		else
 		{
-			return Response::forge(View::forge('startpage/register',array('message'=>$error_message)));	
+			echo nl2br($error_message);
+			//return Response::forge(View::forge('startpage/register',array('message'=>$error_message)));	
 		}
 		
 	}
@@ -113,13 +109,15 @@ class Controller_Accounts extends Controller
 		
 		if($validate == true)
 		{
-			$this->user->send_email(input::post('email'));	
+			$this->user->send_email(input::post('email'));
+			echo 'Email sent';
 		}
 		else
 		{
 			$error_type = 5;
 			$error_message = $this->user->get_error_message($error_type);
-			return Response::forge(View::forge('startpage/forgot_password',array('message'=>$error_message)));
+			echo $error_message;
+			//recreturn Response::forge(View::forge('startpage/forgot_password',array('message'=>$error_message)));
 		}
 	}
 	
@@ -233,7 +231,7 @@ class Controller_Accounts extends Controller
 	public function action_logout()
 	{
 		Session::destroy();
-		Response::redirect('login');
+		Response::redirect('');
 	}
 
 	

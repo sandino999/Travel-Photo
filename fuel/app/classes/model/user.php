@@ -53,8 +53,12 @@ class Model_User extends Model
                  * note::edited 11/4/12
                  *!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                  */
+		$username = $parameters['username'];
+		$password = $parameters['password'];
+		$email = $parameters['email'];
+		$retype = $parameters['retype'];
+		$name = $parameters['name'];
 	
-		
 		$val = Validation::forge();			// starts validation using fuelphp validation class
 		
 		$val->add_field('username','username','required|min_length[2]');
@@ -67,13 +71,13 @@ class Model_User extends Model
                  * 
                  * If the $_POST keys are the same as the one declared in the validation
                  * There's no need to declare them again in the $val->run()
-                 * 
-                 * Suggestion =  We can just AJAX the validation instead doing two types of validation in JS.
                  * note: edited 11/4/12
+                 * Suggestion =  We can just AJAX the validation instead doing two types of validation in JS.
+                 * 
                  *!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                  */
                 
-		if ($val->run())
+		if ($val->run(array('username'=>$username,'password'=>$password,'email'=>$email,'retype'=>$retype,'name'=>$name)))
 		{
 		 	
 			$validate_username = $this->check_if_username_exists($val->validated('username'));	// calls function to check if username exists in the database
