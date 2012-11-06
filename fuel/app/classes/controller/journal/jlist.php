@@ -14,14 +14,21 @@
  * @author user
  */
 class Controller_journal_jlist extends \Fuel\Core\Controller {
-    /*
+    
     public function before() {
         parent::before();
         if(!Fuel\Core\Request::is_hmvc()) {
             \Fuel\Core\Response::redirect();
         }
     }
-    */
+    
+    public function action_journal_mine() {
+        $view = \Fuel\Core\View::forge('journal/journal_list');
+        $view->journal_items = Model_Journal::load_my_journals();
+        
+        return $view;
+    }
+
     public function action_journal_list() {
         $view = \Fuel\Core\View::forge('journal/journal_list');
         $view->journal_items = Model_Journal::load_journals();

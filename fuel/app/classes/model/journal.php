@@ -37,7 +37,7 @@ class Model_Journal extends \Model_Crud
             $q = Model_Journal::forge()->set(array(
                 'name' => \Fuel\Core\Input::post('journal_name'),
                 'description' => \Fuel\Core\Input::post('journal_description'),
-                'user' => 'Test_user'
+                'user' => Fuel\Core\Session::get('username')
             ));
             $q->save();
         }
@@ -54,9 +54,17 @@ class Model_Journal extends \Model_Crud
                 return $q;
             }
         }
+        
+        public static function load_my_journals() {
+            $q = self::find_by_user(Fuel\Core\Session::get('username'));
+            
+            if($q != null) {
+                return $q;
+            }
+        }
 
         public static function load_journals() {
-            $q = Model_Journal::find_by('user','Test_user','=',10);
+            $q = self::find_all(10);
             if ($q != NULL) {
                 return $q;
             }

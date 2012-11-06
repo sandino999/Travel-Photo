@@ -25,7 +25,11 @@ class Controller_journal_main  extends Controller {
    
    public function action_delete($id) {
        $files = Model_Photo::get_photo($id, false);
-       $this->delete_journal_photos($files);
+       
+       if (count($files) > 0) {
+           $this->delete_journal_photos($files);
+       }
+       
        Model_Journal::delete_journal($id);
        Fuel\Core\Response::redirect('db');
    }

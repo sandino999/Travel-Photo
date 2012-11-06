@@ -18,7 +18,7 @@
                     <input type="text"/>
                 </section>
                 <section class="child-table default-padding">
-                    <h1>Travel Blog</h1>
+                    <h1><?php print \Fuel\Core\Html::anchor(' ', 'Travel Blog'); ?></h1>
                 </section>
                 <section class="child-table default-padding">  
                 <?php $arg = array('data-toggle'=>'modal'); ?>
@@ -32,9 +32,15 @@
                     </div>
 		<?php else:?>
                     <div class="dropdown nav-items">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo Fuel\Core\Html::img('assets/img/profile_picture/'.Session::get('user_photo'),array('width'=>25,'height'=>25)) . Session::get('username'); ?></a>
+                        
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <?php echo Fuel\Core\Html::img('assets/img/profile_picture/'.
+                                    Session::get('user_photo'),array('width'=>25,'height'=>25)) . 
+                                    Session::get('username'); ?>
+                        </a>
+                        
                         <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-                            <li><a tabindex="-1" href="#">Action</a></li>
+                            <li><?php print \Fuel\Core\Html::anchor('my_journal','My Journal') ?></li>
                             <li><?php print \Fuel\Core\Html::anchor('#add-journal','Add Journal',$arg)?></li>
                             <li><?php print Fuel\Core\Html::anchor('accounts/edit', 'Edit Profile')  ?></li>
                             <li class="divider"></li>
@@ -52,9 +58,18 @@
             <article class="base-table-content" id="journal-content">
                 <section class="child-table">
                     <article class="base-table-full">
-                        <header><h2><?php if(isset($journal)):print $journal->name; else: print 'Listed Journals'; endif; ?></h2></header>
+                        <header>
+                            <h2>
+                            <?php if(isset($journal)):
+                                print $journal->name; 
+                            else: 
+                                print 'Listed Journals'; 
+                            endif; 
+                            ?>
+                            </h2>
+                        </header>
                         <section class="child-table-full">
-                            <?php print $items;?>
+                            <?php isset($items) and print $items;?>
                         </section>
                     </article>
                 </section>
