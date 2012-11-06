@@ -10,15 +10,15 @@ $(document).ready(function(){
 
 	$.post('accounts/login', {username:username,password:password}, function(data){
 	
-		if(data == '')
+		if(data != '')
 		{
-			window.location = ''
-		}
-		else
-		{       
-                    var err_container = '#error_message';
+			  var err_container = '#error_message';
                         $(err_container).addClass('label label-important');
 			$(err_container).html(data);
+		}
+		else
+		{            
+			window.location = ''
 		}
 		});	
 	
