@@ -94,7 +94,7 @@
                         $form_reg->input('reg_username', 'text', 'Username');
                         $form_reg->input('reg_password', 'password', 'Password');
                         $form_reg->input('password2','password', 'Re-type Password');
-						$form_reg->input('name','text','Name');
+			$form_reg->input('name','text','Name');
                         $form_reg->input('email','text','Email');
                         $form_reg->submit('submit');
                         $form_reg->close_form();
