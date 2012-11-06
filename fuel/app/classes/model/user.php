@@ -126,14 +126,6 @@ class Model_User extends Model
 		$validate_email = $this->check_email_update($parameters['email']);		// calls function to check if email exists
                 	
 		
-		$config = array(
-		'path' => DOCROOT.'assets/img/profile_picture',		
-		'auto_rename' => false,		
-		'overwrite'   => false			//allow overwrites of duplicate files
-		);
-		
-		
-		Upload::process($config);		// process validation of file
 		
 		if($parameters['name'] == '' OR $parameters['email'] == '')		
 		{
@@ -145,26 +137,15 @@ class Model_User extends Model
 			$error_type = 3;
 			return $this->get_error_message($error_type);
 		}
-		elseif($parameters['file_size'] > 1024 * 1024 * 4 )  // check if file size exceeds 1mb
-		{
-			$error_type = 7;
-			return $this->get_error_message($error_type);
-		}
-		elseif($parameters['file_size'] == 0)			// check if there is a photo chosen, if no photo chosen just proceed to save since change photo is not necessary
-		{												// if there is a photo uploaded, check if it is a proper image file
-			Upload::save();
+		elseif($parameters['photo'] == '')			
+		{												
 			$query = DB::update('users')->set(array('email'=>$parameters['email'],
 			'name'=>$parameters['name']))->where('id','=',Session::get('user_id'))->execute();	
-		}
-		elseif(getimagesize($parameters['file_tmp']) == 0)	// getimagesize returns a non zero value if file is an image
-		{
-			$error_type = 8;
-			return $this->get_error_message($error_type);
-		}
+		}	
 		else
 		{
-			Upload::save();
-			$query = DB::update('users')->set(array('photo'=>$parameters['file_name'],
+			
+			$query = DB::update('users')->set(array('photo'=>$parameters['photo'],'date'=>date('d-m-Y'),
 			'email'=>$parameters['email'],'name'=>$parameters['name']))->where('id','=',Session::get('user_id'))->execute();	
 			
 			$this->set_session_parameters(Session::get('username'));  // updates session
@@ -622,6 +603,7 @@ class Model_User extends Model
 			Session::set('username',$row['user']);
 			Session::set('user_email',$row['email']);
 			Session::set('user_photo',$row['photo']);
+			Session::set('photo_date',$row['date']);
 		}	
 	}
 	

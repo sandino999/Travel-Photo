@@ -8,11 +8,10 @@
 	<?php foreach($profile as $row) 
 			{
 				$server_name =  Session::instance()->get('server');				
-				$photo = $server_name.'/travel-photo/assets/img/profile_picture/'.$row['photo'];
+				$photo = $server_name.'/travel-photo/assets/upload/'.$row['date'].'/'.$row['photo'];
 				$email = $row['email'];
 				$username = $row['user'];
-				$name = $row['name'];
-				
+				$name = $row['name'];			
 			}	
 	?>
 	<div style="position:relative; top:200;height:0px;left:700">

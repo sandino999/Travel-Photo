@@ -116,7 +116,21 @@ class Controller_Accounts extends Controller
 	
 	public function action_update()
 	{
-	
+		    $upload = myupload::upload_resize();
+			
+			if($upload)
+			{
+				foreach($upload as $row)
+				{
+					$filename =  $row['file_name'];
+				}
+			}
+			else
+			{
+				$filename = '';
+			}
+							
+	/*
 		$parameters = array(
 				'file_name'=> $_FILES['picture']['name'],
 				'file_size'=> $_FILES['picture']['size'],
@@ -125,7 +139,13 @@ class Controller_Accounts extends Controller
 				'name'		=> $_POST['txtname'],
 				'email'		=> $_POST['txtemail']
 		);
-		
+	*/
+
+		$parameters = array(
+				'name'		=> $_POST['txtname'],
+				'email'		=> $_POST['txtemail'],
+				'photo'		=> $filename
+		);		
 			
 		$error_message = $this->user->validate_update($parameters);	
 		

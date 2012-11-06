@@ -48,7 +48,7 @@
 					</div>
 					
                     <div class="dropdown nav-items">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo Fuel\Core\Html::img('assets/img/profile_picture/'.Session::get('user_photo'),array('width'=>25,'height'=>25)) . Session::get('username'); ?></a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo Fuel\Core\Html::img('assets/upload/'.Session::get('photo_date').'/'.Session::get('user_photo'),array('width'=>25,'height'=>25)) . Session::get('username'); ?></a>
                         <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
                             <li><a tabindex="-1" href="#">Action</a></li>
                             <li><a tabindex="-1" href="#">Another action</a></li>
