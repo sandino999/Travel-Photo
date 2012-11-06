@@ -78,7 +78,7 @@
                 <section class="modal-header"><h1>Add Journal</h1></section>
                 <section class="modal-body">
                     <?php 
-                        $form = new MyHtml('form-item');
+                        $form = new MyForm('form-item');
                         echo \Fuel\Core\Form::open('journal/main/add');
                         $form->input('journal_name', 'text', 'Name');
                         $form->textarea('journal_description', 'text', 'Description');

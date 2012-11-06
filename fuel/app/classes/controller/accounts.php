@@ -116,7 +116,7 @@ class Controller_Accounts extends Controller
 	
 	public function action_update()
 	{
-		
+	
 		$parameters = array(
 				'file_name'=> $_FILES['picture']['name'],
 				'file_size'=> $_FILES['picture']['size'],
@@ -126,15 +126,11 @@ class Controller_Accounts extends Controller
 				'email'		=> $_POST['txtemail']
 		);
 		
+			
 		$error_message = $this->user->validate_update($parameters);	
 		
 		if($error_message == null)
 		{
-		/*
-			$message_type = 4;
-			$message = $this->user->get_message($message_type);
-			echo $message; // dummy echo*/
-			
 			Response::redirect('');
 		}	
 		else
@@ -142,6 +138,7 @@ class Controller_Accounts extends Controller
 			$profile = $this->user->get_profile_settings(Session::get('user_id'));		
 			return Response::forge(View::forge('startpage/edit',array('profile'=>$profile,'message'=>$error_message)));
 		}
+		
 	}
 	
 	/**
