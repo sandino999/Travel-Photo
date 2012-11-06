@@ -1,10 +1,13 @@
 <?php
 
+/*
+*	Controller Accounts handles all function for login, registration,
+*	edit accounts and forgot password
+*/
 
 
 class Controller_Accounts extends Controller
 {
-	
 	public function __construct()
 	{
 		$this->user = new Model_user;
@@ -16,11 +19,10 @@ class Controller_Accounts extends Controller
 	 */
 	 
 	public function action_login()
-	{
-				
-		$username =  input::post('username');
+	{				
+		$username = input::post('username');
 		$password = input::post('password');
-		
+			
 		$error_message = $this->user->validate_login($username,$password);
 		
 		if($error_message != null)
@@ -92,7 +94,6 @@ class Controller_Accounts extends Controller
 	
 	public function action_recover()
 	{
-		
 		$validate = $this->user->validate_recover_password(input::post('forgot_username'),input::post('forgot_email'));
 		
 		if($validate == true)
@@ -116,16 +117,25 @@ class Controller_Accounts extends Controller
 	
 	public function action_update()
 	{
-	
+		$upload = myupload::upload_resize();	// calls upload class	
+			
+			if($upload)		// checks if there is a file uploaded
+			{
+				foreach($upload as $row)
+				{
+					$filename =  $row['file_name'];		// gets the file name of file uploaded
+				}
+			}
+			else
+			{
+				$filename = '';
+			}
+							
 		$parameters = array(
-				'file_name'=> $_FILES['picture']['name'],
-				'file_size'=> $_FILES['picture']['size'],
-				'file_tmp'  => $_FILES['picture']['tmp_name'],
-				'file_error' => $_FILES['picture']['error'],
 				'name'		=> $_POST['txtname'],
-				'email'		=> $_POST['txtemail']
-		);
-		
+				'email'		=> $_POST['txtemail'],
+				'photo'		=> $filename
+		);		
 			
 		$error_message = $this->user->validate_update($parameters);	
 		
