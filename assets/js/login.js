@@ -15,8 +15,10 @@ $(document).ready(function(){
 			window.location = ''
 		}
 		else
-		{
-			$('#error_message').html(data);
+		{       
+                    var err_container = '#error_message';
+                        $(err_container).addClass('label label-important');
+			$(err_container).html(data);
 		}
 		});	
 	

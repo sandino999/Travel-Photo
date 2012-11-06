@@ -8,10 +8,9 @@
             echo \Fuel\Core\Asset::css('bootstrap.min.css');
             echo \Fuel\Core\Asset::js('jquery-1.8.2.js');
             echo \Fuel\Core\Asset::js('bootstrap.min.js');
-			echo \Fuel\Core\Asset::js('login.js');
-			echo \Fuel\Core\Asset::js('register.js');
-			echo \Fuel\Core\Asset::js('forgot-password.js');
-			
+            echo \Fuel\Core\Asset::js('login.js');
+            echo \Fuel\Core\Asset::js('register.js');
+            echo \Fuel\Core\Asset::js('forgot-password.js');		
         ?>
     </head>
     <body>
@@ -24,43 +23,31 @@
                     <h1>Travel Blog</h1>
                 </section>
                 <section class="child-table default-padding">  
-					<?php $arg = array('data-toggle'=>'modal'); ?>
+                <?php $arg = array('data-toggle'=>'modal'); ?>
         
-		<?php 
-			
-			if(Session::get('user_id') == '' )
-			{
-		?>
-					<div class="nav-items" id='login'>
-                        <?php print Fuel\Core\Html::anchor('#login-module', 'Sign-In',$arg) ?>
+		<?php if(Session::get('user_id') == '' ): ?>
+                    <div class="nav-items" id='login'>
+                        <?php print Fuel\Core\Html::anchor('#login-module', 'Sign-In',$arg); ?>
                     </div>
-                    
                     <div class="nav-items" id='sign-up'>
                         <?php print Fuel\Core\Html::anchor('#register-module', 'Sign-Up',$arg) ?>
                     </div>
-		<?php
-			}
-			else
-			{
-		?>
-		              
+		<?php else:?>
                     <div class="dropdown nav-items">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo Fuel\Core\Html::img('assets/img/profile_picture/'.Session::get('user_photo'),array('width'=>25,'height'=>25)) . Session::get('username'); ?></a>
                         <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
                             <li><a tabindex="-1" href="#">Action</a></li>
-                            <li><a tabindex="-1" href="#">Another action</a></li>
-                            <li><?php echo Fuel\Core\Html::anchor('accounts/edit', 'Edit Profile')  ?></li>
+                            <li><?php print \Fuel\Core\Html::anchor('#add-journal','Add Journal',$arg)?></li>
+                            <li><?php print Fuel\Core\Html::anchor('accounts/edit', 'Edit Profile')  ?></li>
                             <li class="divider"></li>
-                            <li> <?php echo Fuel\Core\Html::anchor('accounts/logout', 'Logout')  ?></li>
+                            <li> <?php print Fuel\Core\Html::anchor('accounts/logout', 'Logout')  ?></li>
                         </ul>
-                    </div>
-                    
+                    </div>   
                 </section>
+                <?php endif;?>
             </nav>
         </header>
-		<?php
-			}
-		?>
+            
         <footer>
             <!-- Modules -->
             
@@ -94,8 +81,8 @@
 						?>
                 </section>
                 <footer class="modal-footer">
-					<font color='red'><span id='error_message'></font>
-				</footer>
+			<span id='error_message'></span>
+		</footer>
             </article>
             
             <article class="modal hide fade" id="register-module">
@@ -114,8 +101,8 @@
                     ?>
                 </section>
                 <footer class="modal-footer">
-					<font color='red'><span id='reg_error_message'></font>
-				</footer>
+                    <span id='reg_error_message' class="label label-important"></span>
+		</footer>
             </article>
             
             <article class="modal hide fade" id="forgot-module">
@@ -131,8 +118,8 @@
                     ?>
                 </section>
                 <footer class="modal-footer">
-					<font color='red'><span id='forgot_error_message'></font>
-				</footer>
+			<span id='forgot_error_message' class="label label-important"></span>
+		</footer>
             </article>     
         </footer>		
     </body>

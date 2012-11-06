@@ -1,6 +1,6 @@
 <?php
 return array(
-	'_root_'  => 'front/home',  // The default route
+	'_root_'  => 'journal/dashboard',  // The default route
         'login' => 'mainpage', //login & Registration
         'db' => 'journal/dashboard', //journal dashboard
         'photo/:id' => 'journal/dashboard/photo' //Photos
