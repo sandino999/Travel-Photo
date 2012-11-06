@@ -10,7 +10,7 @@ class Model_Photo extends \Model_Crud
                 $q = self::forge()->set(array(
                     'journalid' => \Fuel\Core\Input::post('journal-id'),
                     'file' => $image['file_name'],
-                    'date' => date('d-j-Y'),
+                    'date' => date('d-m-Y'),
                     'desc' => ''
                 ));
                 $q->save();
