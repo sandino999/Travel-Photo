@@ -105,25 +105,14 @@ class Model_User extends Model
 			}
 			else
 			{
-		
-                            /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                             * 
-                             * You can still use this for updating. Create a separte functio for this.
-                             * Pass an array on that function for setting the fields.
-                             * note: edited 11/4/12
-                             *!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                             */
 				$this->add_register_to_db($val->validated('username'),$val->validated('password'),$val->validated('name'),$val->validated('email'));	
-			}
-		
-			
+			}		
 		}
 		else
 		{	
 			return 	$val->error('username')."\n".$val->error('password')."\n"
 					.$val->error('email')."\n".$val->error('retype')."\n".$val->error('name');
-		}	
-		
+		}		
 	}
 	
 	/**

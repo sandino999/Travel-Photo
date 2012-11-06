@@ -43,7 +43,10 @@
 			else
 			{
 		?>
-		              
+					<div class='nav-items' id='journal-add'>
+						<?php print Fuel\Core\Html::anchor('#add-journal', 'Add Journal',$arg) ?>
+					</div>
+					
                     <div class="dropdown nav-items">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo Fuel\Core\Html::img('assets/img/profile_picture/'.Session::get('user_photo'),array('width'=>25,'height'=>25)) . Session::get('username'); ?></a>
                         <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">

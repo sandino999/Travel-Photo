@@ -67,7 +67,7 @@ return array(
 	'extension'			=> '',
 
 	// default path the uploaded files will be saved to
-	'path'				=> DOCROOT. 'assets/upload/'. date('d-j-Y') ,
+	'path'				=> DOCROOT. 'assets/upload/'. date('d-m-Y') ,
 
 	// create the path if it doesn't exist
 	'create_path'		=> true,
