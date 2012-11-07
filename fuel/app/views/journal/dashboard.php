@@ -34,7 +34,7 @@
                     <div class="dropdown nav-items">
                         
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            <?php echo Fuel\Core\Html::img('assets/img/profile_picture/'.
+                            <?php echo Fuel\Core\Html::img('assets/upload/'.Session::get('photo_date').'/'.
                                     Session::get('user_photo'),array('width'=>25,'height'=>25)) . 
                                     Session::get('username'); ?>
                         </a>
@@ -77,7 +77,7 @@
               <!-- Side Bar -->  
                 <section class="child-table">
                     <?php
-                    if (isset($is_photo)):
+                    if (isset($is_photo) AND myjournal::check_journal($journal->id) == true):
                         print \Fuel\Core\Form::open(array(
                             'action'=>'/journal/main/addphoto/',
                             'method'=>'post',

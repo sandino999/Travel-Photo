@@ -5,6 +5,7 @@
                 </h3></header>
         <footer>
             <ul>
+			<?php if($item->user == Session::get('username')): ?>
                 <li><?php print Fuel\Core\Html::anchor('#edit-journal', 'Edit',
                                                     array(
                                                         'data-toggle' => 'modal',
@@ -13,12 +14,15 @@
                                                     
                                                     )); ?>
                 </li>             
-                <li>Comment</li>
-                <li>Like</li>
+                
                 <li>
                     <?php print Fuel\Core\Html::anchor('/journal/main/delete/'.$item->id, 'Delete');?>
                 </li>
-              </ul>
+              
+			<?php endif; ?> 
+				<br/><li>Comment</li>
+                <li>Like</li>
+			</ul>	
         </footer>
     </article>
 <?php endforeach; 

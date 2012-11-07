@@ -8,7 +8,13 @@
     </header>
     <footer>                            
          <ul>
-             <li><?php print \Fuel\Core\Html::anchor('journal/main/deletephoto/'.$photo->id.'/'.$photo->journalid, 'Remove') ?></li>
+             <li>
+				<?php 
+					if(myjournal::check_journal($photo->journalid) == true):
+						print \Fuel\Core\Html::anchor('journal/main/deletephoto/'.$photo->id.'/'.$photo->journalid, 'Remove'); 
+					endif;
+				?>
+			</li>
          </ul>                           
                                                                    
     </footer>                           

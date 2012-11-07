@@ -69,5 +69,17 @@ class Model_Journal extends \Model_Crud
                 return $q;
             }
         }
+		
+		public static function validate_journal($journal_id) {
+		
+		$query = DB::select()->from('journals')->where('id','=',$journal_id)->where('user','=',Session::get('username'))->execute();
+		
+			if(count($query) > 0){
+				return true;
+			}
+			else{
+				return false;
+			}	
+		}
 
 }
