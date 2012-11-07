@@ -123,7 +123,6 @@ class Controller_Accounts extends Controller
 				'file_tmp'  => $_FILES['picture']['tmp_name'],
 				'file_error' => $_FILES['picture']['error'],
 				'name'		=> $_POST['txtname'],
-				'username'	=> $_POST['txtuser'],
 				'email'		=> $_POST['txtemail']
 		);
 		
@@ -131,9 +130,12 @@ class Controller_Accounts extends Controller
 		
 		if($error_message == null)
 		{
+		/*
 			$message_type = 4;
 			$message = $this->user->get_message($message_type);
-			echo $message; // dummy echo
+			echo $message; // dummy echo*/
+			
+			Response::redirect('');
 		}	
 		else
 		{

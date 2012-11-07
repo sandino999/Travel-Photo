@@ -28,16 +28,13 @@
 			
 			Name <input type='text' name='txtname' value='<?php echo $name; ?>' id='name'> 
 			<font color='red'><span id='return_name'></span></font><br/>
-			
-			Username <input type='text' name='txtuser' value='<?php echo $username; ?>' id='username'>
-			<font color='red'><span id='return_username'></span></font><br/>
-			
+		
 			Image <img src='<?php echo $photo; ?>' width=100 height=100>
 			<input type='file' value='Upload Image' name='picture'><br/>
 			<input type='submit' value='Save Profile'>
 		</form>
 		
-		<div style="position:relative; top:-225;height:0px;left:65">
+		<div style="position:relative; top:-200;height:0px;left:65">
 		<form action='password_change'>
 			<input type='submit' value='change password' name='btnchange_password	'>
 		</form>

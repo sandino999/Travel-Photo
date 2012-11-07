@@ -200,20 +200,14 @@ var error=0
 
 $('#update').submit(function() {
 
-		if(jQuery.trim($('#username').val()) == '' || jQuery.trim($('#email').val()) == '' || jQuery.trim($('#name').val()) == '')
+		if( jQuery.trim($('#email').val()) == '' || jQuery.trim($('#name').val()) == '')
 		{
 			if(jQuery.trim($('#name').val()) == '')
 			{
 				error_message = 'This Field is required';
 				$('#return_name').html(error_message);
 			}
-				
-			if(jQuery.trim($('#username').val()) == '')
-			{
-				error_message = 'This Field is required';
-				$('#return_username').html(error_message);
-			}
-							
+										
 			if(jQuery.trim($('#email').val()) == '')
 			{
 				error_message = 'This Field is required';

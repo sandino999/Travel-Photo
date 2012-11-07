@@ -134,40 +134,21 @@ class Model_User extends Model
 	public function validate_update($parameters)
 	{
 		echo Session::instance()->get('email');
-		$validate_username = $this->check_username_update($parameters['username']);	// calls function to check if username exists
 		$validate_email = $this->check_email_update($parameters['email']);		// calls function to check if email exists
-                
-                /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                 *
-                 * Integarte Upload file with class upload. 
-				 * note: I used fuelphp upload class starts on line 167
-                 *!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                 */
-                
-                /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                 * 
-                 * No Validate class?
-                 * note: do you mean validation class for uploaded file?
-				 * I tried that but they only check for extension of file uploaded so I decided not to use it
-				 *
-                 *!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                 */
+                	
+		
 		$config = array(
 		'path' => DOCROOT.'assets/img/profile_picture',		
 		'auto_rename' => false,		
 		'overwrite'   => false			//allow overwrites of duplicate files
 		);
 		
+		
 		Upload::process($config);		// process validation of file
 		
-		if($parameters['username'] == '' OR $parameters['name'] == '' OR $parameters['email'] == '')		
+		if($parameters['name'] == '' OR $parameters['email'] == '')		
 		{
 			$error_type = 6;
-			return $this->get_error_message($error_type);
-		}
-		elseif($validate_username == true)					// check if username already exists in the database
-		{	
-			$error_type = 4;
 			return $this->get_error_message($error_type);
 		}
 		elseif($validate_email == true)						// check if email already exists in the database
@@ -183,7 +164,7 @@ class Model_User extends Model
 		elseif($parameters['file_size'] == 0)			// check if there is a photo chosen, if no photo chosen just proceed to save since change photo is not necessary
 		{												// if there is a photo uploaded, check if it is a proper image file
 			Upload::save();
-			$query = DB::update('users')->set(array('user'=>$parameters['username'],'email'=>$parameters['email'],
+			$query = DB::update('users')->set(array('email'=>$parameters['email'],
 			'name'=>$parameters['name']))->where('id','=',Session::get('user_id'))->execute();	
 		}
 		elseif(getimagesize($parameters['file_tmp']) == 0)	// getimagesize returns a non zero value if file is an image
@@ -194,9 +175,11 @@ class Model_User extends Model
 		else
 		{
 			Upload::save();
-			$query = DB::update('users')->set(array('photo'=>$parameters['file_name'],'user'=>$parameters['username'],
+			$query = DB::update('users')->set(array('photo'=>$parameters['file_name'],
 			'email'=>$parameters['email'],'name'=>$parameters['name']))->where('id','=',Session::get('user_id'))->execute();	
-		}	
+			
+			$this->set_session_parameters(Session::get('username'));  // updates session
+		}
 	}
 	
 	/** 
@@ -649,6 +632,7 @@ class Model_User extends Model
 			Session::set('user_id',$row['id']);
 			Session::set('username',$row['user']);
 			Session::set('user_email',$row['email']);
+			Session::set('user_photo',$row['photo']);
 		}	
 	}
 	
