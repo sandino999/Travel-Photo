@@ -9,8 +9,16 @@ $(document).ready(function(){
 	var password = $('#password').val()
 
 	$.post('accounts/login', {username:username,password:password}, function(data){
-		$('#error_message').html(data);
-	});	
+	
+		if(data == '')
+		{
+			window.location = ''
+		}
+		else
+		{
+			$('#error_message').html(data);
+		}
+		});	
 	
 	return false;
 	});

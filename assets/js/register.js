@@ -13,7 +13,15 @@ $(document).ready(function(){
 		
 	$.post('accounts/register_validate',{reg_username:reg_username,reg_password:reg_password,
 			reg_password2:reg_password2,reg_name:reg_name,reg_email:reg_email}, function(reg_data){
-		$('#reg_error_message').html(reg_data);
+	
+		if(reg_data == '')
+		{
+			window.location = ''
+		}
+		else
+		{
+			$('#reg_error_message').html(reg_data);
+		}	
 	});	
 	
 	return false;

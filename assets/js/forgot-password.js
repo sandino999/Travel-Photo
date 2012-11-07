@@ -19,9 +19,9 @@ $(document).ready(function(){
 		
 	$('#login').click(function(){
 				
-		$('#error_message').html('')
-		$('#username').val('') 
-		$('#password').val('') 
+		$('#forgot_error_message').html('')
+		$('#forgot_username').val('') 
+		$('#forgot_password').val('') 
 	});
 
 });

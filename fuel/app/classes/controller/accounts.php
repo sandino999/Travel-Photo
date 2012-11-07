@@ -23,12 +23,7 @@ class Controller_Accounts extends Controller
 		
 		$error_message = $this->user->validate_login($username,$password);
 		
-		if($error_message == null)
-		{
-			echo 'logged';
-			//return Response::redirect('front/home');
-		}
-		else
+		if($error_message != null)
 		{
 			echo nl2br($error_message);	
 		}
@@ -62,18 +57,10 @@ class Controller_Accounts extends Controller
 		
 		$error_message = $this->user->validate_register($parameters);	
 		
-		if($error_message == null)
+		if($error_message != null)
 		{	
-			$message_type = 1;
-			$message = $this->user->get_message($message_type);
-			echo $message;			// dummy echo
-		}
-		else
-		{
 			echo nl2br($error_message);
-			//return Response::forge(View::forge('startpage/register',array('message'=>$error_message)));	
-		}
-		
+		}	
 	}
 	
 	/**
@@ -105,11 +92,12 @@ class Controller_Accounts extends Controller
 	
 	public function action_recover()
 	{
-		$validate = $this->user->validate_recover_password(input::post('username'),input::post('email'));
+		
+		$validate = $this->user->validate_recover_password(input::post('forgot_username'),input::post('forgot_email'));
 		
 		if($validate == true)
 		{
-			$this->user->send_email(input::post('email'));
+			$this->user->send_email(input::post('forgot_email'));
 			echo 'Email sent';
 		}
 		else
@@ -231,6 +219,11 @@ class Controller_Accounts extends Controller
 	public function action_logout()
 	{
 		Session::destroy();
+		Response::redirect('');
+	}
+	
+	public function action_redirect()
+	{
 		Response::redirect('');
 	}
 

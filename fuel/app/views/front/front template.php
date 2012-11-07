@@ -45,11 +45,11 @@
 		?>
 		              
                     <div class="dropdown nav-items">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Settings</a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo Session::get('username'); ?></a>
                         <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
                             <li><a tabindex="-1" href="#">Action</a></li>
                             <li><a tabindex="-1" href="#">Another action</a></li>
-                            <li><a tabindex="-1" href="#">Something else here</a></li>
+                            <li><?php echo Fuel\Core\Html::anchor('accounts/edit', 'Edit Profile')  ?></li>
                             <li class="divider"></li>
                             <li> <?php echo Fuel\Core\Html::anchor('accounts/logout', 'Logout')  ?></li>
                         </ul>
@@ -124,8 +124,8 @@
                     <?php
                         $form_login = new myform('form-item');
                         $form_login->open_form('/travel-photo/accounts/login');
-                        $form_login->input('username', 'text', 'Username');
-                        $form_login->input('email', 'email', 'Email');
+                        $form_login->input('forgot_username', 'text', 'Username');
+                        $form_login->input('forgot_email', 'email', 'Email');
                         $form_login->submit('Send');
                         $form_login->close_form();
                     ?>

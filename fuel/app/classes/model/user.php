@@ -628,8 +628,6 @@ class Model_User extends Model
 		$email->subject('Recover Password');
 		$email->body('Click the link to this account to reset your password:'.$link);
 		$email->send();
-		
-		echo "email sent";
 	}
 	
 	/** 
